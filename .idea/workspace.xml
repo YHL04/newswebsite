@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/newswebsite2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/app/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/backend/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/backend/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/backend/rankers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/backend/rankers/citation_ranker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/backend/scrapers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/backend/scrapers/arxiv_scraper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/backend/scrapers/paperscraper_scraper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/backend/scrapers/youtube_scraper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/backend/wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/static/button.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/static/coffee.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/static/form.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/static/like.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/static/navbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/static/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/templates/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newswebsite/templates/news.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newswebsite/scholar.log" beforeDir="false" afterPath="$PROJECT_DIR$/newswebsite/scholar.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +24,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -57,23 +36,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.run.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ctlim/PycharmProjects/newswebsite2/newswebsite/templates&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.run.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/ctlim/PycharmProjects/newswebsite2/img",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\img" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\templates" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\app" />
-      <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\app\members\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite" />

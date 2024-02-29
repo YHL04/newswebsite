@@ -15,7 +15,8 @@ Not hosted yet
 
 ## Resources
 
-database: https://realpython.com/flask-database/#
+django: https://docs.djangoproject.com/en/5.0/intro/tutorial01/
+
 
 ## Ranking algorithm
 
