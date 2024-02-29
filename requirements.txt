@@ -1,0 +1,7 @@
+
+
+Django==5.0.2
+arxiv==2.1.0
+scholarly==0.5.1
+semanticscholar==0.7.0
+

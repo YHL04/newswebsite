@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'button.css' %}">
+<link rel="stylesheet" href="{% static 'coffee.css' %}">
+<link rel="stylesheet" href="{% static 'form.css' %}">
+<link rel="stylesheet" href="{% static 'like.css' %}">
+<link rel="stylesheet" href="{% static 'navbar.css' %}">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<html>
+
+<ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+</ul>
+
+<head>
+    <title>Papers</title>
+</head>
+
+<body>
+
+<h1>Daily AI News</h1>
+
+<p>Discover the most recent AI papers ranked by algorithm. :)</p>
+
+<div class="extra-row">
+</div>
+
+<div class="calendar-row">
+    {% if next %}
+    <button class="arrow-right" onclick="location.href='/{{ next_date }}'"></button>
+    {% else %}
+    <button class="arrow-empty" onclick="location.href='/{{ curr_date }}'"></button>
+    {% endif %}
+    <div class="calendar">
+        <p class="calendar-month">{{ month }}</p>
+        <p class="calendar-day">{{ day }}</p>
+    </div>
+    <button class="arrow-left" onclick="location.href='/{{ prev_date }}'"></button>
+</div>
+
+<div class="grid-container">
+    {% for news in news_data %}
+    <div class="grid-item">
+        <h2>{{ news.title }}</h2>
+
+        <div class="grid-info"><p><b class="grid-info-text">{{ news.date }}</b></p></div>
+
+        {% if news.liked %}
+            <div class="grid-info">
+                <a class="like-button-decr">Unlike</a>
+            </div>
+        {% else %}
+            <div class="grid-info">
+                <a class="like-button-incr">Like</a>
+            </div>
+        {% endif %}
+
+
+        <div class="grid-info"><p><b class="grid-info-text">{{ news.citation_rank }}</b></p></div>
+
+        <p class="grid-paragraphs">{{ news.text }}</p>
+        <button class="button-17" onclick="window.open('{{ news.link }}','_blank')">
+                arXiv
+        </button>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+
+</html>

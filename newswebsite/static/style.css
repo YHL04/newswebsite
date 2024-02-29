@@ -1,0 +1,120 @@
+
+
+html * {
+    background-color: hsl(218, 28%, 13%);
+    color: white;
+    text-align: center;
+    font-family: Calibri;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.grid-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 20px;
+    align: center;
+}
+
+.grid-item {
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-info {
+    float: left;
+    width: 33%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.grid-info-text {
+    color: grey;
+}
+
+.grid-paragraphs {
+    font-size: 1em;
+    max-width: 400px;
+}
+
+.extra-row {
+    height: 5px;
+    width: 100%;
+}
+
+.calendar-row {
+    height: 80px;
+    width: 100%;
+}
+
+.calendar {
+    margin: 10px;
+    height: 60px;
+    width: 60px;
+    float: right;
+    text-decoration: none;
+    font-size: 1em;
+    text-align: center;
+    font-weight: bold;
+    background-color: grey;
+    border-radius: 10px;
+
+    /* powerful way to arrange stuff */
+    display: flex;
+
+    /* puts everything in the center or stack it on top of each other */
+    justify-content: center;
+
+    /* everything is a column */
+    flex-direction: column;
+}
+
+.calendar-month {
+    margin-bottom: 2px;
+    background-color: grey;
+}
+
+.calendar-day {
+    margin-top: 2px;
+    background-color: grey;
+}
+
+.arrow-empty {
+    margin-top: 30px;
+    float: right;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+
+    border-right: 10px solid transparent;
+}
+
+.arrow-left {
+    margin-top: 30px;
+    float: right;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+
+    border-right: 10px solid white;
+}
+
+.arrow-right {
+    margin-top: 30px;
+    float: right;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-left: 10px solid white;
+}
+
