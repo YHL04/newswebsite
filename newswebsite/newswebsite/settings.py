@@ -24,14 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-b%8ylptw^jo068dd170i_i49m7@^p#6zq^3jbxa_px)0t4#ru@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'app.apps.AppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -69,11 +70,14 @@ TEMPLATES = [
     },
 ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
 WSGI_APPLICATION = 'newswebsite.wsgi.application'
+ASGI_APPLICATION = 'newswebsite.asgi.application'
 
 
 # Database

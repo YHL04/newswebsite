@@ -47,6 +47,10 @@ def index(request):
 
 
 def specific_date(request, date):
+    if date == "favicon.ico":
+        # not sure why it goes to /favicon.ico but return nothing
+        # so it returns back to original page
+        return HttpResponse("")
     date = datetime.strptime(date, '%Y-%m-%d')
     return daily_paper_render(request, date)
 
