@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="add staticfiles">
-      <change afterPath="$PROJECT_DIR$/newswebsite/newswebsite/settings_production.py" afterDir="false" />
+    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="preparing to host">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newswebsite/newswebsite/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/newswebsite/newswebsite/asgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newswebsite/newswebsite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/newswebsite/newswebsite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newswebsite/scholar.log" beforeDir="false" afterPath="$PROJECT_DIR$/newswebsite/scholar.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newswebsite/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/newswebsite/templates/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newswebsite/newswebsite/settings_production.py" beforeDir="false" afterPath="$PROJECT_DIR$/newswebsite/newswebsite/settings_production.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/ctlim/PycharmProjects/newswebsite2/newswebsite/newswebsite",
+    "last_opened_file_path": "C:/Users/ctlim/PycharmProjects/newswebsite2",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -60,11 +56,11 @@
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\templates" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\app\templates\app" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\app" />
-      <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite2" />
     </key>
   </component>
   <component name="RunManager">
@@ -144,13 +140,22 @@
       <option name="project" value="LOCAL" />
       <updated>1709240249512</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="preparing to host">
+      <option name="closed" value="true" />
+      <created>1709244160901</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709244160901</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update readme" />
     <MESSAGE value="update css" />
     <MESSAGE value="add staticfiles" />
-    <option name="LAST_COMMIT_MESSAGE" value="add staticfiles" />
+    <MESSAGE value="preparing to host" />
+    <option name="LAST_COMMIT_MESSAGE" value="preparing to host" />
   </component>
 </project>
