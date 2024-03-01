@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-b%8ylptw^jo068dd170i_i49m7@^p#6zq^3jbxa_px)0t4#ru@
 DEBUG = True
 
 ALLOWED_HOSTS = ['yhlim04.pythonanywhere.com', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://yhlim04.pythonanywhere.com']
+CSRF_TRUSTED_ORIGINS = ['https://yhlim04.pythonanywhere.com', "https://www.aipapernews.com", "https://www.aipapernews2.com"]
 
 
 # Application definition
