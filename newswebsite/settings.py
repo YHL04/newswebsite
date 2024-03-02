@@ -92,10 +92,10 @@ DATABASES = {
     # },
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yhlim04$news',
+        'NAME': 'yhlim04$default',
         'USER': 'yhlim04',
         'PASSWORD': 'mysqldonthack',
-        'HOST': 'yhlim04.mysql.pythonanywhere-services.com'
+        'HOST': 'yhlim04.mysql.pythonanywhere-services.com',
     }
 }
 
