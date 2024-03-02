@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # scrape from arXiv
     for keyword in keywords:
         print("Scraping %s" % keyword)
-        data = scraper(query=keyword, max_results=1000)
+        data = scraper(query=keyword, max_results=2000)
         store_to_db(data, "db.sqlite")
 
     # rank news from database

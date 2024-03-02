@@ -19,6 +19,16 @@ html * {
     align: center;
 }
 
+@media only screen and (max-width: 768px) {
+    .grid-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto;
+        padding: 20px;
+        align: center;
+    }
+}
+
 .grid-item {
     padding: 20px;
     text-align: center;
