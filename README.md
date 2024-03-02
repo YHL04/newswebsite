@@ -16,8 +16,13 @@ Not hosted yet
 ## Resources
 
 django: https://docs.djangoproject.com/en/5.0/intro/tutorial01/
-pythonanywhere: 
-namecheap: 
+
+mysql with django: https://help.pythonanywhere.com/pages/UsingMySQL/
+
+pythonanywhere: https://www.pythonanywhere.com/
+
+namecheap: https://www.namecheap.com/
+
 
 ## Ranking algorithm
 

@@ -86,9 +86,16 @@ ASGI_APPLICATION = 'newswebsite.asgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'yhlim04$news',
+        'USER': 'yhlim04',
+        'PASSWORD': 'mysqldonthack',
+        'HOST': 'yhlim04.mysql.pythonanywhere-services.com'
     }
 }
 
