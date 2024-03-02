@@ -16,7 +16,8 @@ Not hosted yet
 ## Resources
 
 django: https://docs.djangoproject.com/en/5.0/intro/tutorial01/
-
+pythonanywhere: 
+namecheap: 
 
 ## Ranking algorithm
 
