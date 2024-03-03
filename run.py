@@ -7,8 +7,6 @@ if __name__ == "__main__":
 
     keywords = ["Artificial Intelligence", "Machine Learning"]
 
-    reinit_db()
-
     # scrape from arXiv
     for keyword in keywords:
         print("Scraping %s" % keyword)
