@@ -10,11 +10,11 @@ if __name__ == "__main__":
     # scrape from arXiv
     for keyword in keywords:
         print("Scraping %s" % keyword)
-        data = scraper(query=keyword, max_results=2000)
-        store_to_db(data, "db.sqlite")
+        data = scraper(query=keyword, max_results=10)
+        store_to_db(data)
 
     # rank news from database
-    datas = get_from_db("db.sqlite")
+    datas = get_from_db()
     datas = [datas[i:i+5] for i in range(0, len(datas), 5)]
 
     count = 0
@@ -22,6 +22,6 @@ if __name__ == "__main__":
         print(count)
         count += 5
         data = ranker(data)
-        delete_from_db(data, "db.sqlite")
-        store_to_db(data, "db.sqlite")
+        delete_from_db(data)
+        store_to_db(data)
 

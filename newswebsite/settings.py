@@ -85,6 +85,8 @@ ASGI_APPLICATION = 'newswebsite.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+from auth import *
+
 DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
@@ -92,10 +94,10 @@ DATABASES = {
     # },
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yhlim04$default',
-        'USER': 'yhlim04',
-        'PASSWORD': 'mysqldonthack',
-        'HOST': 'yhlim04.mysql.pythonanywhere-services.com',
+        'NAME': DBNAME,
+        'USER': USERNAME,
+        'PASSWORD': SQLPASSWORD,
+        'HOST': SQLADDRESS[0],
     }
 }
 
