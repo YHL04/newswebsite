@@ -1,6 +1,6 @@
 
 
-from .scrapers import arxiv_scraper, youtube_scraper
+from .scrapers import arxiv_scraper, arxiv_scraper_recent, youtube_scraper
 from .rankers import citation_ranker_google_scholar, citation_ranker_semantic_scholar
 
 """
@@ -21,6 +21,10 @@ Dictionary:
 
 def scraper(query, max_results):
     return arxiv_scraper(query, max_results)
+
+
+def scraper_recent(c):
+    return arxiv_scraper_recent(c)
 
 
 def ranker(data):

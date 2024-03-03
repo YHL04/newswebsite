@@ -2,36 +2,110 @@
 
 import arxiv
 
-import re
 import json
+import xmltojson
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen
+from datetime import datetime
 
 client = arxiv.Client()
 
 
-# def arxiv_category_scraper():
-#     scraper = Scraper(category='cs', date_from='2024-02-05', date_until='2024-12-30')
-#     # scraper = scraper.scrape_text('arxiv')
-#     sent_cnts = scraper.scrape_text('arxiv', save_to=['class1.txt', 'class2.txt'], log_to='test.log')
-#     print(sent_cnts)
-#     return scraper
-
-
-def arxiv_recent_scraper():
-    url = "https://arxiv.org/list/cs.AI/pastweek?skip=0&show=1000"
+def arxiv_scraper_recent(c="cs.AI"):
+    url = "https://arxiv.org/list/{}/pastweek?skip=0&show=1000".format(c)
     url_search = urlopen(url)
     page = url_search.read()
 
+    # get html from beautifulsoup
     html_code = bs(page, "html.parser")
-    print(html_code)
 
-    # pattern = r'<script nonce="[-\w]+">\n\s+var ytInitialData = (.+)'
-    # script_data = re.search(pattern=pattern, string=html_code.prettify())[1].replace(';', '')
+    # load html plaintext into json
+    json_code = xmltojson.parse(html_code.prettify())
+    json_data = json.loads(json_code)
 
-    # Load the JSON data into a Python dictionary
-    # json_data = json.loads(script_data)
-    # print(json_data)
+    json_data = json_data['html']['body']['div'][2]['div']['dl']
+
+    links = []
+    titles = []
+    authors = []
+    categories = []
+
+    for day_data in json_data:
+        data1 = day_data['dt']
+        data2 = day_data['dd']
+        for d1, d2 in zip(data1, data2):
+            link = d1['span']['a'][0]['@href']
+            links.append(link)
+
+            title = d2['div']['div'][0]['#text']
+            title = ' '.join(title.split())
+            titles.append(title)
+
+            author = []
+            for a in d2['div']['div'][1]['a']:
+                try:
+                    author.append(a['#text'])
+                except Exception as e:
+                    pass
+            authors.append(author)
+
+            primary_subjects = d2['div']['div'][-1]['span'][-1]['#text'].split('(')[-1]
+            primary_subjects = [primary_subjects.split(')')[0]]
+
+            try:
+                subjects = d2['div']['div'][-1]['#text']
+                if subjects.startswith(';'):
+                    subjects = [s.split(')')[0] for s in subjects.split('(')[1:]]
+                    primary_subjects.extend(subjects)
+
+            except KeyError as e:
+                pass
+
+            categories.append(primary_subjects)
+
+    results = []
+    for link, title, author, category in zip(links, titles, authors, categories):
+        id = link.split('/')[-1].split('.')
+        id = id[0] + id[1]
+
+        link = "https://arxiv.org" + link
+
+        # get html from beautifulsoup
+        html_code = bs(urlopen(link).read(), "html.parser")
+
+        # load html plaintext into json
+        try:
+            json_code = xmltojson.parse(html_code.prettify())
+            json_data = json.loads(json_code)
+        except Exception as e:
+            continue
+
+        # html directory for abstract text
+        text = json_data['html']['body']['div']['main']['div']['div']['div'][0]['div'][2]['div']['blockquote']['#text']
+        text = ' '.join(text.split())
+
+        published = json_data['html']['body']['div']['main']['div']['div']['div'][0]['div'][2]['div']['div'][0]['#text']
+        published = published[14:-1]
+        published = datetime.strptime(published, "%d %b %Y").strftime("%Y-%m-%d")
+
+        print(title)
+        print(published)
+
+        news = {
+            'id'           : id,
+            'title'        : title,
+            'date'         : published,
+            'categories'   : category,
+            'authors'      : author,
+            'link'         : link,
+            'text'         : text,
+            'citation_rank': -1,
+            'final_rank'   : -1,
+            'likes'        : 0,
+        }
+        results.append(news)
+
+    return results
 
 
 def arxiv_scraper(query, max_results):
@@ -65,9 +139,6 @@ def arxiv_scraper(query, max_results):
         link = str(r.links[0])
         text = str(r.summary)
 
-        print(title)
-        print(published)
-
         news = {
             'id'           : id,
             'title'        : title,
@@ -87,7 +158,9 @@ def arxiv_scraper(query, max_results):
 
 
 if __name__ == "__main__":
-    arxiv_scraper("Artificial Intelligence", 2)
     arxiv_scraper("Machine Learning", 2)
+
+    results = arxiv_scraper_recent()
+    print(results)
     # arxiv_category_scraper()
 

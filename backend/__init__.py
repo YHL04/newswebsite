@@ -1,6 +1,6 @@
 
 
-from .wrapper import scraper, ranker
+from .wrapper import scraper, scraper_recent, ranker
 from newswebsite.settings import PRODUCTION
 
 if PRODUCTION:
