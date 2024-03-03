@@ -44,7 +44,7 @@
     <div class="grid-item">
         <h2 class="grid-set-color">{{ news.title }}</h2>
 
-        <div class="grid-info"><p><b class="grid-info-text">{{ news.date }}</b></p></div>
+        <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
 
         {% if news.liked %}
             <div class="grid-info">
@@ -57,7 +57,7 @@
         {% endif %}
 
 
-        <div class="grid-info"><p><b class="grid-info-text">{{ news.citation_rank }}</b></p></div>
+        <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.citation_rank }}</b></p></div>
 
         <p class="grid-paragraphs">{{ news.text }}</p>
         <button class="button-17" onclick="window.open('{{ news.link }}','_blank')">
