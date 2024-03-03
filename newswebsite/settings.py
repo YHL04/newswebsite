@@ -13,6 +13,18 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+try:
+    from auth import *
+except ImportError:
+    SSHHOST = (os.environ['SSHHOST'])
+    USERNAME = os.environ['USERNAME']
+    PASSWORD = os.environ['PASSWORD']
+    SQLADDRESS = (os.environ['SQLHOST'], int(os.environ['SQLPORT']))
+    LOCALHOST = os.environ['LOCALHOST']
+    SQLPASSWORD = os.environ['SQLPASSWORD']
+    DBNAME = os.environ['DBNAME']
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -88,7 +100,6 @@ ASGI_APPLICATION = 'newswebsite.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-from auth import *
 
 if PRODUCTION:
     # for remote MySQL database for production
