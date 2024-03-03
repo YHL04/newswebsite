@@ -1,10 +1,11 @@
 
 
+import argparse
+
 from backend import scraper, ranker, reinit_db, store_to_db, get_from_db, delete_from_db
 
 
 if __name__ == "__main__":
-
     keywords = ["Artificial Intelligence", "Machine Learning"]
 
     # scrape from arXiv

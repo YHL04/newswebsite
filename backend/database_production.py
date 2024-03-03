@@ -4,7 +4,18 @@ import MySQLdb
 import sshtunnel
 import ast
 
-from auth import *
+try:
+    # use auth.py for authentication if running on original machine
+    from auth import *
+except ImportError:
+    # use environment variables for authentication if using github actions
+    SSHHOST = (os.environ['SSHHOST'])
+    USERNAME = os.environ['USERNAME']
+    PASSWORD = os.environ['PASSWORD']
+    SQLADDRESS = (os.environ['SQLHOST'], int(os.environ['SQLPORT']))
+    LOCALHOST = os.environ['LOCALHOST']
+    SQLPASSWORD = os.environ['SQLPASSWORD']
+    DBNAME = os.environ['DBNAME']
 
 
 sshtunnel.SSH_TIMEOUT = 5.0

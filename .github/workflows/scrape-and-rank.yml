@@ -1,0 +1,37 @@
+name: Scrape and Rank Daily
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+    # this runs at 12:00 PM UTC each day.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2
+      # checkout the repository content so that the runner has access to the files
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: install python packages
+        run:
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: execute script
+        env:
+          SSHHOST: ${{ secrets.SSHHOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          SQLHOST: ${{ secrets.SQLHOST }}
+          SQLPORT: ${{ secrets.SQLPORT }}
+          LOCALHOST: ${{ secrets.LOCALHOST }}
+          SQLPASSWORD: ${{ secrets.SQLPASSWORD }}
+          DBNAME: ${{ secrets.DBNAME }}
+        run: python run.py
+
