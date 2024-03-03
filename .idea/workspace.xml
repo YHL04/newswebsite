@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="scraper and latest today">
+    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="fix github action bug">
       <change beforePath="$PROJECT_DIR$/.github/workflows/scrape-and-rank.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/scrape-and-rank.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newswebsite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/newswebsite/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -516,7 +514,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709485529399</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="fix github action bug">
+      <option name="closed" value="true" />
+      <created>1709485973342</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1709485973342</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -529,6 +535,7 @@
     <MESSAGE value="add production mode and development mode" />
     <MESSAGE value="add github actions" />
     <MESSAGE value="scraper and latest today" />
-    <option name="LAST_COMMIT_MESSAGE" value="scraper and latest today" />
+    <MESSAGE value="fix github action bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix github action bug" />
   </component>
 </project>
