@@ -14,6 +14,7 @@ html * {
 .grid-container {
     position: relative;
     display: grid;
+    gap: 20px;
     grid-template-columns: auto auto;
     padding: 20px;
     align: center;
@@ -33,7 +34,7 @@ html * {
     padding: 20px;
     text-align: center;
     border-radius: 20px;
-    background-color: hsl(230, 40%, 13%);
+    background-color: hsl(218, 28%, 13%);
 }
 
 .grid-info {
@@ -41,22 +42,22 @@ html * {
     width: 33%;
     margin-bottom: 20px;
     text-align: center;
-    background-color: hsl(230, 40%, 13%);
+    background-color: hsl(218, 28%, 13%);
 }
 
 .grid-info-text {
     color: grey;
-    background-color: hsl(230, 40%, 13%);
+    background-color: hsl(218, 28%, 13%);
 }
 
 .grid-paragraphs {
     font-size: 1em;
     max-width: 400px;
-    background-color: hsl(230, 40%, 13%);
+    background-color: hsl(218, 28%, 13%);
 }
 
 .grid-set-color {
-    background-color: hsl(230, 40%, 13%);
+    background-color: hsl(218, 28%, 13%);
 }
 
 .extra-row {
