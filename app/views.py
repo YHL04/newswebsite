@@ -13,20 +13,8 @@ class LatestToday:
     will always contain content or if the database is empty, stop decrementing after 5.
     """
     def __init__(self):
-        self.date = datetime.today()
-
-        news_data = News.objects.order_by("citation_rank")[::-1]
-
-        news_today = [news for news in news_data if
-                      datetime.strptime(news.date.split()[0], '%Y-%m-%d').strftime('%Y-%m-%d') == self.date.strftime('%Y-%m-%d')]
-
-        count = 5
-        while len(news_today) == 0 and count > 0:
-            print(self.date)
-            self.date -= timedelta(days=1)
-            news_today = [news for news in news_data if
-                          datetime.strptime(news.date.split()[0], '%Y-%m-%d').strftime('%Y-%m-%d') == self.date.strftime('%Y-%m-%d')]
-            count -= 1
+        news_data = News.objects.order_by("date")[::-1]
+        self.date = datetime.strptime(news_data[0].date.split()[0], '%Y-%m-%d')
 
 
 latesttoday = LatestToday()
