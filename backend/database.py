@@ -9,9 +9,32 @@ def str_rep_to_list(str):
     return ast.literal_eval(str)
 
 
-def store_to_db(data, file):
+def reinit_db(file="db.sqlite"):
+    # set the news database as news.db
+    con = sqlite3.connect(file)
+    cur = con.cursor()
+    cur.execute(
+        "CREATE TABLE app_news"
+        "(id TEXT NOT NULL,"
+        " title TEXT NOT NULL,"
+        " date TEXT NOT NULL,"
+        " authors TEXT NOT NULL,"
+        " categories TEXT NOT NULL,"
+        " link TEXT NOT NULL,"
+        " text TEXT NOT NULL,"
+        " citation_rank TEXT NOT NULL,"
+        " final_rank TEXT NOT NULL,"
+        " likes TEXT NOT NULL,"
+        " unique (id)"
+        ")")
+    con.commit()
+
+    con.close()
+
+
+def store_to_db(data, file="db.sqlite"):
     data = [(str(d['id']), str(d["title"]), str(d["date"]), str(d["authors"]), str(d["categories"]),
-             str(d["link"]), str(d["text"]), str(d["citation_rank"]), str(d["rank"]), str(d["likes"]))
+             str(d["link"]), str(d["text"]), str(d["citation_rank"]), str(d["final_rank"]), str(d["likes"]))
             for d in data]
 
     with sqlite3.connect(file) as con:
@@ -23,7 +46,7 @@ def store_to_db(data, file):
         con.commit()
 
 
-def get_from_db(file):
+def get_from_db(file="db.sqlite"):
     """
     retrieve everything from database in the form of
     List[dict] where dict has keys 'title', 'link', 'text'
@@ -47,7 +70,7 @@ def get_from_db(file):
          'link'         : d[5],
          'text'         : d[6],
          'citation_rank': d[7],
-         'rank'         : d[8],
+         'final_rank'   : d[8],
          'likes'        : d[9],
         }
         for d in data
@@ -56,7 +79,7 @@ def get_from_db(file):
     return data
 
 
-def delete_from_db(data, file):
+def delete_from_db(data, file="db.sqlite"):
     data = [(d["link"],) for d in data]
 
     with sqlite3.connect(file) as con:

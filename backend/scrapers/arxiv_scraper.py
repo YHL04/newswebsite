@@ -77,7 +77,7 @@ def arxiv_scraper(query, max_results):
             'link'         : link,
             'text'         : text,
             'citation_rank': -1,
-            'rank'         : -1,
+            'final_rank'   : -1,
             'likes'        : 0,
         }
 

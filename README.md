@@ -7,7 +7,10 @@ The goal is to try to make it a source of information by gathering and ranking r
 
 <img src="https://github.com/YHL04/newswebsite/blob/main/img/img.png" alt="drawing" width="600"/>
 
+## Open Source
 
+Inside newswebsite/settings.py, set PRODUCTION = FALSE during development to use local sqlite3 database
+instead of remote database.
 
 ## Link to website
 

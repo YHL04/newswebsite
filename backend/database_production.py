@@ -103,7 +103,7 @@ def store_to_db(data):
             db=DBNAME,
         )
         data = [(str(d['id']), str(d["title"]), str(d["date"]), str(d["authors"]), str(d["categories"]),
-                 str(d["link"]), str(d["text"]), str(d["citation_rank"]), str(d["rank"]), str(d["likes"]))
+                 str(d["link"]), str(d["text"]), str(d["citation_rank"]), str(d["final_rank"]), str(d["likes"]))
                 for d in data]
 
         cur = con.cursor()

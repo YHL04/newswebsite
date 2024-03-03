@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-b%8ylptw^jo068dd170i_i49m7@^p#6zq^3jbxa_px)0t4#ru@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# set production to false during development
+PRODUCTION = True
+
 ALLOWED_HOSTS = ['127.0.0.1', 'www.aipapernews.com']
 CSRF_TRUSTED_ORIGINS = ['https://yhlim04.pythonanywhere.com']
 
@@ -87,20 +90,25 @@ ASGI_APPLICATION = 'newswebsite.asgi.application'
 
 from auth import *
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite',
-    # },
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': DBNAME,
-        'USER': USERNAME,
-        'PASSWORD': SQLPASSWORD,
-        'HOST': SQLADDRESS[0],
+if PRODUCTION:
+    # for remote MySQL database for production
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': DBNAME,
+            'USER': USERNAME,
+            'PASSWORD': SQLPASSWORD,
+            'HOST': SQLADDRESS[0],
+        }
     }
-}
-
+else:
+    # for local sqlite3 database for development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

@@ -5,16 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="remote sql database">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database_production.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database_production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/rankers/citation_ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/rankers/citation_ranker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/scrapers/arxiv_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/scrapers/arxiv_scraper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newswebsite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/newswebsite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newswebsite/settings_production.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scholar.log" beforeDir="false" afterPath="$PROJECT_DIR$/scholar.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,17 +56,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/ctlim/PycharmProjects/newswebsite_old",
+    "last_opened_file_path": "C:/Users/ctlim/PycharmProjects/newswebsite",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ctlim\PycharmProjects\newswebsite" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite\staticfiles" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\newswebsite" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\img" />
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\templates" />
-      <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2" />
@@ -505,7 +508,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709419548779</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="remote sql database">
+      <option name="closed" value="true" />
+      <created>1709424325939</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1709424325939</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

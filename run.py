@@ -1,11 +1,13 @@
 
 
-from backend import scraper, ranker, store_to_db, get_from_db, delete_from_db
+from backend import scraper, ranker, reinit_db, store_to_db, get_from_db, delete_from_db
 
 
 if __name__ == "__main__":
 
     keywords = ["Artificial Intelligence", "Machine Learning"]
+
+    reinit_db()
 
     # scrape from arXiv
     for keyword in keywords:

@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class News(models.Model):
-    id = models.CharField(max_length=1_000_000, unique=True)
+    id = models.CharField(max_length=1_000_000, unique=True, primary_key=True)
     title = models.CharField(max_length=1_000_000, unique=False)
     date = models.CharField(max_length=1_000_000, unique=False)
     authors = models.CharField(max_length=1_000_000, unique=False)

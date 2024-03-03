@@ -25,7 +25,7 @@ def citation_ranker_semantic_scholar(data, url="https://www.semanticscholar.org/
                 continue
 
         d['citation_rank'] = str(citations)
-        d['rank'] = str(citations)
+        d['final_rank'] = str(citations)
 
     return data
 
