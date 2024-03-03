@@ -18,15 +18,16 @@ class LatestToday:
         news_data = News.objects.order_by("citation_rank")[::-1]
 
         news_today = [news for news in news_data if
-                      datetime.strptime(news.date.split()[0], '%Y-%m-%d') == self.date]
+                      datetime.strptime(news.date.split()[0], '%Y-%m-%d').strftime('%Y-%m-%d') == self.date.strftime('%Y-%m-%d')]
 
         count = 5
         while len(news_today) == 0 and count > 0:
             print(self.date)
             self.date -= timedelta(days=1)
             news_today = [news for news in news_data if
-                          datetime.strptime(news.date.split()[0], '%Y-%m-%d') == self.date]
+                          datetime.strptime(news.date.split()[0], '%Y-%m-%d').strftime('%Y-%m-%d') == self.date.strftime('%Y-%m-%d')]
             count -= 1
+
 
 latesttoday = LatestToday()
 
