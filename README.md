@@ -37,12 +37,13 @@ sota, results, sentiment analysis?
 
 ## Features
 
-- [X] create a database system
-- [X] about page
-- [ ] create search for content
-- [ ] create different sort by options
-- [ ] run backend and frontend on different threads
-- [ ] add 2 more scrapers
-- [ ] create a ranking system to rank content
-- [ ] beautify website & add more functionalities
-- [ ] try get publicity from college
+- [X] finish main page with button corresponding to each day
+- [X] create scraper and ranker with github actions
+- [X] create development and production mode
+- [X] create a database system with remote MySQL
+- [X] host website
+- [ ] create gmail login?
+- [ ] create like button? (requires login)
+- [ ] create comment section? (requires login)
+- [ ] try to promote website
+

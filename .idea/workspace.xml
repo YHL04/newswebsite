@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="fix bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="multithreaded ranker">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scholar.log" beforeDir="false" afterPath="$PROJECT_DIR$/scholar.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -540,7 +539,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709487153975</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="multithreaded ranker">
+      <option name="closed" value="true" />
+      <created>1709516776927</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1709516776927</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -555,6 +562,7 @@
     <MESSAGE value="scraper and latest today" />
     <MESSAGE value="fix github action bug" />
     <MESSAGE value="fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
+    <MESSAGE value="multithreaded ranker" />
+    <option name="LAST_COMMIT_MESSAGE" value="multithreaded ranker" />
   </component>
 </project>
