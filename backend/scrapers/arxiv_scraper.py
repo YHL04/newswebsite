@@ -81,12 +81,15 @@ def arxiv_scraper_recent(c="cs.AI"):
             continue
 
         # html directory for abstract text
-        text = json_data['html']['body']['div']['main']['div']['div']['div'][0]['div'][2]['div']['blockquote']['#text']
-        text = ' '.join(text.split())
+        try:
+            text = json_data['html']['body']['div']['main']['div']['div']['div'][0]['div'][2]['div']['blockquote']['#text']
+            text = ' '.join(text.split())
 
-        published = json_data['html']['body']['div']['main']['div']['div']['div'][0]['div'][2]['div']['div'][0]['#text']
-        published = published[14:-1]
-        published = datetime.strptime(published, "%d %b %Y").strftime("%Y-%m-%d")
+            published = json_data['html']['body']['div']['main']['div']['div']['div'][0]['div'][2]['div']['div'][0]['#text']
+            published = published[14:-1]
+            published = datetime.strptime(published, "%d %b %Y").strftime("%Y-%m-%d")
+        except Exception as e:
+            continue
 
         print(title)
         print(published)
@@ -138,6 +141,9 @@ def arxiv_scraper(query, max_results):
         authors = [str(author) for author in r.authors]
         link = str(r.links[0])
         text = str(r.summary)
+
+        print(title)
+        print(published)
 
         news = {
             'id'           : id,

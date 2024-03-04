@@ -13,8 +13,12 @@ class LatestToday:
     will always contain content or if the database is empty, stop decrementing after 5.
     """
     def __init__(self):
-        news_data = News.objects.order_by("date")[::-1]
-        self.date = datetime.strptime(news_data[0].date.split()[0], '%Y-%m-%d')
+        news_data = News.objects.order_by("date")
+
+        self.date = datetime.today() - timedelta(days=5)
+        for news in news_data:
+            if datetime.strptime(news.date.split()[0], '%Y-%m-%d') > self.date:
+                self.date = datetime.strptime(news.date.split()[0], '%Y-%m-%d')
 
 
 latesttoday = LatestToday()

@@ -1,28 +1,37 @@
 
 
 import threading
+from datetime import datetime, timedelta
 
 from backend import scraper, scraper_recent, ranker, reinit_db, store_to_db, get_from_db, delete_from_db
+
+
+def drop_old():
+    """drop data 14 days old and data with final rank less than 5"""
+    datas = get_from_db()
+
+    drops = []
+    for data in datas:
+        if datetime.strptime(data['date'].split()[0], "%Y-%m-%d") < (datetime.today() - timedelta(days=14)):
+            drops.append(data)
+        elif 0 <= float(data['final_rank']) < 5:
+            drops.append(data)
+
+    delete_from_db(drops)
 
 
 def scrape(keywords, categories):
     # scrape from arXiv
     for category in categories:
         print("Scraping %s" % category)
-        try:
-            data = scraper_recent(c=category)
-            store_to_db(data)
-        except Exception as e:
-            print(e)
+        data = scraper_recent(c=category)
+        store_to_db(data)
 
     # scrape from arXiv
     for keyword in keywords:
         print("Scraping %s" % keyword)
-        try:
-            data = scraper(query=keyword, max_results=1_000)
-            store_to_db(data)
-        except Exception as e:
-            print(e)
+        data = scraper(query=keyword, max_results=500)
+        store_to_db(data)
 
 
 def rank(datas, new_datas):
@@ -43,7 +52,8 @@ if __name__ == "__main__":
     keywords = ["Artificial Intelligence", "Machine Learning"]
     categories = ["cs.AI", "cs.LG"]
 
-    # scrape(keywords, categories)
+    scrape(keywords, categories)
+    drop_old()
 
     # rank news from database
     datas = get_from_db()
