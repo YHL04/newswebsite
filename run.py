@@ -52,8 +52,8 @@ if __name__ == "__main__":
     keywords = ["Artificial Intelligence", "Machine Learning"]
     categories = ["cs.AI", "cs.LG"]
 
-    scrape(keywords, categories)
-    drop_old()
+    # scrape(keywords, categories)
+    # drop_old()
 
     # rank news from database
     datas = get_from_db()
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     i = 0
     while i < len(datas):
         new_data = []
-        threads = [threading.Thread(target=rank, args=(data, new_data)) for data in datas[i:i+10]]
+        threads = [threading.Thread(target=rank, args=(data, new_data)) for data in datas[i:i+20]]
         for t in threads:
             t.start()
 
@@ -72,5 +72,5 @@ if __name__ == "__main__":
         delete_from_db(new_data)
         store_to_db(new_data)
 
-        i += 10
+        i += 20
 
