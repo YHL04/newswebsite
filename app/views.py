@@ -16,12 +16,6 @@ class LatestToday:
         news_data = News.objects.order_by("date")
         dates = [datetime.strptime(news.date.split()[0], '%Y-%m-%d') for news in news_data]
         self.date = max(dates)
-        self.date = self.date.strftime('%Y-%m-%d')
-
-        # self.date = datetime.today() - timedelta(days=5)
-        # for news in news_data:
-        #     if datetime.strptime(news.date.split()[0], '%Y-%m-%d') > self.date:
-        #         self.date = datetime.strptime(news.date.split()[0], '%Y-%m-%d')
 
 
 latesttoday = LatestToday()
