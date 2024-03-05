@@ -9,8 +9,17 @@ The goal is to try to make it a source of information by gathering and ranking r
 
 ## Open Source
 
-Inside newswebsite/settings.py, set PRODUCTION = FALSE during development to use local sqlite3 database
-instead of remote database.
+For development mode on local pc, inside newswebsite/settings.py
+```python
+PRODUCTION = False
+```
+
+Then, run on localhost
+```bash
+python manage.py runserver
+```
+
+
 
 ## Link to website
 
