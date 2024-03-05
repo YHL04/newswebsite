@@ -19,7 +19,10 @@ class LatestToday:
         dates = [datetime.strptime(news.date.split()[0], '%Y-%m-%d') for news in news_data]
 
         # get max date
-        self.date = max(dates)
+        if len(dates) == 0:
+            self.date = datetime.today()
+        else:
+            self.date = max(dates)
 
 
 latesttoday = LatestToday()
