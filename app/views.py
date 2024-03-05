@@ -14,9 +14,12 @@ class LatestToday:
     """
     def __init__(self):
         news_data = News.objects.all()
+
+        # get all dates in datetime format
         dates = [datetime.strptime(news.date.split()[0], '%Y-%m-%d') for news in news_data]
-        dates.sort(key=lambda x: x.date)
-        self.date = dates[-1].strftime('%Y-%m-%d')
+
+        # get max date
+        self.date = max(dates)
 
 
 latesttoday = LatestToday()
