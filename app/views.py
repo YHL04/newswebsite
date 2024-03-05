@@ -16,7 +16,7 @@ class LatestToday:
         news_data = News.objects.all()
         dates = [datetime.strptime(news.date.split()[0], '%Y-%m-%d') for news in news_data]
         dates.sort(key=lambda x: x.date)
-        self.date = dates[-1]
+        self.date = dates[-1].strftime('%Y-%m-%d')
 
 
 latesttoday = LatestToday()
