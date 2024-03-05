@@ -13,7 +13,7 @@ class LatestToday:
     will always contain content or if the database is empty, stop decrementing after 5.
     """
     def __init__(self):
-        news_data = News.objects.order_by("date")
+        news_data = News.objects.all()
         dates = [datetime.strptime(news.date.split()[0], '%Y-%m-%d') for news in news_data]
         self.date = max(dates)
 
@@ -22,12 +22,14 @@ latesttoday = LatestToday()
 
 
 def daily_paper_render(request, date):
-    news_data = News.objects.order_by("citation_rank")[::-1]
-    news_data = [news for news in news_data if datetime.strptime(news.date.split()[0], '%Y-%m-%d') == date]
+    news_data = News.objects.all()
 
     for news in news_data:
         news.date = news.date.split()[0]
-        news.citation_rank = str(round(float(news.citation_rank), 2))
+        news.citation_rank = round(float(news.citation_rank), 2)
+
+    news_data = [news for news in news_data if datetime.strptime(news.date, '%Y-%m-%d') == date]
+    news_data.sort(key=lambda x: x.citation_rank)
 
     curr_date = date.strftime('%Y-%m-%d')
     prev_date = (date - timedelta(days=1)).strftime('%Y-%m-%d')
