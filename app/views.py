@@ -29,7 +29,7 @@ def daily_paper_render(request, date):
         news.citation_rank = round(float(news.citation_rank), 2)
 
     news_data = [news for news in news_data if datetime.strptime(news.date, '%Y-%m-%d') == date]
-    news_data.sort(key=lambda x: x.citation_rank)
+    news_data.sort(key=lambda x: -x.citation_rank)
 
     curr_date = date.strftime('%Y-%m-%d')
     prev_date = (date - timedelta(days=1)).strftime('%Y-%m-%d')
