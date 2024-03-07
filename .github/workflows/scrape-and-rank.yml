@@ -2,7 +2,7 @@ name: Scrape and Rank Daily
 
 on:
   schedule:
-    - cron: '0 23 * * *'
+    - cron: '0 4 * * *'
     # this runs at 11:00 PM UTC each day.
 
 jobs:

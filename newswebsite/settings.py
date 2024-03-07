@@ -19,7 +19,7 @@ except ImportError:
     SSHHOST = (os.environ['SSHHOST'])
     USERNAME = os.environ['USERNAME']
     PASSWORD = os.environ['PASSWORD']
-    SQLADDRESS = (os.environ['SQLHOST'], int(float(os.environ['SQLPORT'])))
+    SQLADDRESS = (os.environ['SQLHOST'], 3306)
     LOCALHOST = os.environ['LOCALHOST']
     SQLPASSWORD = os.environ['SQLPASSWORD']
     DBNAME = os.environ['DBNAME']

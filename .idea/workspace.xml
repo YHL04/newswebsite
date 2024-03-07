@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="fix bugs">
-      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
+    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="fix bug">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/rankers/citation_ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/rankers/citation_ranker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scholar.log" beforeDir="false" afterPath="$PROJECT_DIR$/scholar.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/showdb.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,22 +38,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.arxiv_scraper.executor": "Run",
-    "Python.debug.executor": "Run",
-    "Python.debug2.executor": "Run",
-    "Python.run (1).executor": "Run",
-    "Python.run.executor": "Run",
-    "Python.showdb.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/ctlim/PycharmProjects/thinkforawhile",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.arxiv_scraper.executor&quot;: &quot;Run&quot;,
+    &quot;Python.debug.executor&quot;: &quot;Run&quot;,
+    &quot;Python.debug2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.run.executor&quot;: &quot;Run&quot;,
+    &quot;Python.showdb.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ctlim/PycharmProjects/compression&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite" />
@@ -66,7 +70,7 @@
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.showdb">
+  <component name="RunManager" selected="Python.run (1)">
     <configuration name="arxiv_scraper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="newswebsite" />
       <option name="ENV_FILES" value="" />
@@ -202,86 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709140123262</updated>
-    </task>
-    <task id="LOCAL-00001" summary="update readme">
-      <option name="closed" value="true" />
-      <created>1709234374062</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1709234374062</updated>
-    </task>
-    <task id="LOCAL-00002" summary="update readme">
-      <option name="closed" value="true" />
-      <created>1709234449225</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1709234449225</updated>
-    </task>
-    <task id="LOCAL-00003" summary="update css">
-      <option name="closed" value="true" />
-      <created>1709240213414</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1709240213414</updated>
-    </task>
-    <task id="LOCAL-00004" summary="add staticfiles">
-      <option name="closed" value="true" />
-      <created>1709240249512</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1709240249512</updated>
-    </task>
-    <task id="LOCAL-00005" summary="preparing to host">
-      <option name="closed" value="true" />
-      <created>1709244160901</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1709244160901</updated>
-    </task>
-    <task id="LOCAL-00006" summary="preparing to host">
-      <option name="closed" value="true" />
-      <created>1709321574783</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1709321574783</updated>
-    </task>
-    <task id="LOCAL-00007" summary="preparing to host">
-      <option name="closed" value="true" />
-      <created>1709322092864</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1709322092864</updated>
-    </task>
-    <task id="LOCAL-00008" summary="preparing to host">
-      <option name="closed" value="true" />
-      <created>1709324051878</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1709324051878</updated>
-    </task>
-    <task id="LOCAL-00009" summary="preparing to host">
-      <option name="closed" value="true" />
-      <created>1709324205965</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1709324205965</updated>
-    </task>
-    <task id="LOCAL-00010" summary="preparing to host">
-      <option name="closed" value="true" />
-      <created>1709324414126</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1709324414126</updated>
     </task>
     <task id="LOCAL-00011" summary="preparing to host">
       <option name="closed" value="true" />
@@ -595,7 +519,87 @@
       <option name="project" value="LOCAL" />
       <updated>1709590006736</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="fix bugs">
+      <option name="closed" value="true" />
+      <created>1709590196443</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1709590196445</updated>
+    </task>
+    <task id="LOCAL-00051" summary="update README.md">
+      <option name="closed" value="true" />
+      <created>1709648985267</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1709648985267</updated>
+    </task>
+    <task id="LOCAL-00052" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1709664038408</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1709664038409</updated>
+    </task>
+    <task id="LOCAL-00053" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1709664151066</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1709664151069</updated>
+    </task>
+    <task id="LOCAL-00054" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1709668050718</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1709668050718</updated>
+    </task>
+    <task id="LOCAL-00055" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1709668153417</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1709668153417</updated>
+    </task>
+    <task id="LOCAL-00056" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1709668529602</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1709668529602</updated>
+    </task>
+    <task id="LOCAL-00057" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1709668662005</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1709668662005</updated>
+    </task>
+    <task id="LOCAL-00058" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1709744046315</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1709744046315</updated>
+    </task>
+    <task id="LOCAL-00059" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1709764715823</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1709764715823</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -620,10 +624,10 @@
     <MESSAGE value="add github actions" />
     <MESSAGE value="scraper and latest today" />
     <MESSAGE value="fix github action bug" />
-    <MESSAGE value="fix bug" />
     <MESSAGE value="multithreaded ranker" />
-    <MESSAGE value="update README.md" />
     <MESSAGE value="fix bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bugs" />
+    <MESSAGE value="update README.md" />
+    <MESSAGE value="fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
   </component>
 </project>

@@ -14,9 +14,9 @@ def citation_ranker_semantic_scholar(data, url="https://www.semanticscholar.org/
 
         authors = d["authors"]
 
-        # get total citations of authors
+        # get total citations of authors (limit to first author due to scrape limitations
         citations = 0
-        for author in authors:
+        for author in authors[:1]:
             try:
                 result = sch.search_author(author)[0]
                 citations += result['citationCount'] / result['paperCount']

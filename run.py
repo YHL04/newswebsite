@@ -7,15 +7,15 @@ from backend import scraper, scraper_recent, ranker, reinit_db, store_to_db, get
 
 
 def drop_old():
-    """drop data 14 days old and data with final rank less than 5"""
+    """drop data 7 days old and data with final rank less than 5"""
     datas = get_from_db()
 
     drops = []
     for data in datas:
-        if datetime.strptime(data['date'].split()[0], "%Y-%m-%d") < (datetime.today() - timedelta(days=14)):
+        if datetime.strptime(data['date'].split()[0], "%Y-%m-%d") < (datetime.today() - timedelta(days=7)):
             drops.append(data)
-        elif 0 <= float(data['final_rank']) < 5:
-            drops.append(data)
+        # elif 0 <= float(data['final_rank']) < 5:
+        #     drops.append(data)
 
     delete_from_db(drops)
 
@@ -52,8 +52,8 @@ if __name__ == "__main__":
     keywords = ["Artificial Intelligence", "Machine Learning"]
     categories = ["cs.AI", "cs.LG"]
 
-    scrape(keywords, categories)
     drop_old()
+    scrape(keywords, categories)
 
     # rank news from database
     datas = get_from_db()
