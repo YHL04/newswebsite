@@ -38,15 +38,15 @@ def daily_paper_render(request, date):
     news_data = [news for news in news_data if datetime.strptime(news.date, '%Y-%m-%d') == date]
     news_data.sort(key=lambda x: -x.citation_rank)
 
-    curr_date = date.strftime('%Y-%m-%d')
-    prev_date = (date - timedelta(days=1)).strftime('%Y-%m-%d')
+    curr_date = date
+    prev_date = date - timedelta(days=1)
     next_date = date + timedelta(days=1)
 
     if next_date > latesttoday.date:
-        next_date = latesttoday.date.strftime('%Y-%m-%d')
+        next_date = latesttoday.date
         next = False
     else:
-        next_date = next_date.strftime('%Y-%m-%d')
+        next_date = next_date
         next = True
 
     month = date.strftime('%b').upper()
@@ -55,9 +55,9 @@ def daily_paper_render(request, date):
     template = loader.get_template("news.html")
     context = {
         "news_data": news_data,
-        "curr_date": curr_date,
-        "prev_date": prev_date,
-        "next_date": next_date,
+        "curr_date": curr_date.strftime('%Y-%m-%d'),
+        "prev_date": prev_date.strftime('%Y-%m-%d'),
+        "next_date": next_date.strftime('%Y-%m-%d'),
         "month": month,
         "day": day,
         "next": next
