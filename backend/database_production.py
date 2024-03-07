@@ -3,6 +3,7 @@
 import MySQLdb
 import sshtunnel
 import ast
+import os
 
 try:
     # use auth.py for authentication if running on original machine
