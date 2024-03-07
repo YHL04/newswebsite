@@ -69,8 +69,11 @@ if __name__ == "__main__":
         for t in threads:
             t.join()
 
-        delete_from_db(new_data)
-        store_to_db(new_data)
+        try:
+            delete_from_db(new_data)
+            store_to_db(new_data)
+        except Exception as e:
+            pass
 
         i += 20
 
