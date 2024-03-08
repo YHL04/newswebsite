@@ -39,7 +39,7 @@ SECRET_KEY = 'django-insecure-b%8ylptw^jo068dd170i_i49m7@^p#6zq^3jbxa_px)0t4#ru@
 DEBUG = True
 
 # set production to false during development
-PRODUCTION = True
+PRODUCTION = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.aipapernews.com']
 CSRF_TRUSTED_ORIGINS = ['https://yhlim04.pythonanywhere.com']
@@ -56,6 +56,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +71,27 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default ModelBackend
+    'allauth.account.auth_backends.AuthenticationBackend',  # Allauth authentication backend for social authentication
+]
+
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': ['profile', 'email'],
+        'APP': {
+            'client_id': 'diesel-ring-416621',  # YOUR_CLIENT_ID
+            'secret': 'AIzaSyC5Jw7NWlKnGOWeaNQa998H-HxdGGjxGfE',  # YOUR_CLIENT_SECRET
+            'key': ''
+        }
+    }
+}
 
 ROOT_URLCONF = 'newswebsite.urls'
 

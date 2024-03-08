@@ -7,6 +7,6 @@ datas = get_from_db()
 
 
 for data in datas:
-    if data['date'].split()[0] == '2024-03-02':
+    if data['date'].split()[0] == '2024-03-06':
         print(data['title'])
         print(data['date'])
