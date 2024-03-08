@@ -8,7 +8,6 @@ con = MySQLdb.connect(
     user=USERNAME,
     passwd=SQLPASSWORD,
     host=LOCALHOST,
-    port=3306,
     db=DBNAME,
 )
 cur = con.cursor()
