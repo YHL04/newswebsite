@@ -2,13 +2,7 @@
 import MySQLdb
 import os
 
-SSHHOST = (os.environ['SSHHOST'])
-USERNAME = os.environ['USERNAME']
-PASSWORD = os.environ['PASSWORD']
-SQLADDRESS = (os.environ['SQLHOST'], 3306)
-LOCALHOST = os.environ['LOCALHOST']
-SQLPASSWORD = os.environ['SQLPASSWORD']
-DBNAME = os.environ['DBNAME']
+from auth import *
 
 con = MySQLdb.connect(
     user=USERNAME,
