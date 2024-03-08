@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="{% static 'form.css' %}">
 <link rel="stylesheet" href="{% static 'like.css' %}">
 <link rel="stylesheet" href="{% static 'navbar.css' %}">
+<link rel="stylesheet" href="{% static 'category.css' %}">
+
 
 <html>
 
@@ -37,6 +39,39 @@
         <p class="calendar-day">{{ day }}</p>
     </div>
     <button class="arrow-left" onclick="location.href='/{{ prev_date }}'"></button>
+
+    <div class="category-group">
+    {% if category == "none" %}
+    <button class="category-selected" onclick="location.href='/{{ curr_date }}'"><b class="category-text-selected">All</b></button>
+    {% else %}
+    <button class="category" onclick="location.href='/{{ curr_date }}'"><b class="category-text">All</b></button>
+    {% endif %}
+
+    {% if category == "transformer" %}
+    <button class="category-selected" onclick="location.href='/{{ curr_date }}/transformer'"><b class="category-text-selected">Transformer</b></button>
+    {% else %}
+    <button class="category" onclick="location.href='/{{ curr_date }}/transformer'"><b class="category-text">Transformer</b></button>
+    {% endif %}
+
+    {% if category == "diffusion" %}
+    <button class="category-selected" onclick="location.href='/{{ curr_date }}/diffusion'"><b class="category-text-selected">Diffusion</b></button>
+    {% else %}
+    <button class="category" onclick="location.href='/{{ curr_date }}/diffusion'"><b class="category-text">Diffusion</b></button>
+    {% endif %}
+
+    {% if category == "reinforcement" %}
+    <button class="category-selected" onclick="location.href='/{{ curr_date }}/reinforcement'"><b class="category-text-selected">Reinforcement Learning</b></button>
+    {% else %}
+    <button class="category" onclick="location.href='/{{ curr_date }}/reinforcement'"><b class="category-text">Reinforcement Learning</b></button>
+    {% endif %}
+
+    {% if category == "other" %}
+    <button class="category-selected" onclick="location.href='/{{ curr_date }}/other'"><b class="category-text-selected">Other</b></button>
+    {% else %}
+    <button class="category" onclick="location.href='/{{ curr_date }}/other'"><b class="category-text">Other</b></button>
+    {% endif %}
+    </div>
+
 </div>
 
 <div class="grid-container">
