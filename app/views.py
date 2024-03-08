@@ -87,6 +87,10 @@ def specific_date(request, date):
         # not sure why it goes to /favicon.ico but return nothing
         # so it returns back to original page
         return HttpResponse("")
+
+    if date.endswith(".txt"):
+        return HttpResponse("")
+
     date = datetime.strptime(date, '%Y-%m-%d')
     return daily_paper_render(request, date=date, latest_today=LatestToday().date)
 
@@ -95,6 +99,9 @@ def specific_category(request, date, category):
     if date == "favicon.ico":
         # not sure why it goes to /favicon.ico but return nothing
         # so it returns back to original page
+        return HttpResponse("")
+
+    if date.endswith(".txt"):
         return HttpResponse("")
 
     categories = {"transformer": ["transformer", "llm", "gpt", "tokenizer"],
