@@ -1,0 +1,18 @@
+
+
+.category {
+    margin: 2px;
+    background-color: hsl(218, 30%, 20%);
+    border-radius: 24px;
+    border: transparent;
+    font-size: 1em;
+    height: 2.4em;
+
+    position: absolute
+    left: 0;
+    bottom: 0;
+}
+
+.category-text {
+    background-color: hsl(218, 30%, 20%);
+}
