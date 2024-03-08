@@ -22,10 +22,10 @@ def drop_old():
 
 def scrape(keywords, categories):
     # scrape from arXiv
-    for category in categories:
-        print("Scraping %s" % category)
-        data = scraper_recent(c=category)
-        store_to_db(data)
+    # for category in categories:
+    #     print("Scraping %s" % category)
+    #     data = scraper_recent(c=category)
+    #     store_to_db(data)
 
     # scrape from arXiv
     for keyword in keywords:
@@ -59,15 +59,9 @@ if __name__ == "__main__":
     datas = get_from_db()
     datas = [datas[i:i+20] for i in range(0, len(datas), 20)]
 
-    i = 0
-    while i < len(datas):
+    for data in datas:
         new_data = []
-        threads = [threading.Thread(target=rank, args=(data, new_data)) for data in datas[i:i+20]]
-        for t in threads:
-            t.start()
-
-        for t in threads:
-            t.join()
+        rank(data, new_data)
 
         try:
             delete_from_db(new_data)
@@ -75,5 +69,21 @@ if __name__ == "__main__":
         except Exception as e:
             pass
 
-        i += 20
+    # i = 0
+    # while i < len(datas):
+    #     new_data = []
+    #     threads = [threading.Thread(target=rank, args=(data, new_data)) for data in datas[i:i+20]]
+    #     for t in threads:
+    #         t.start()
+    #
+    #     for t in threads:
+    #         t.join()
+    #
+    #     try:
+    #         delete_from_db(new_data)
+    #         store_to_db(new_data)
+    #     except Exception as e:
+    #         pass
+    #
+    #     i += 20
 
