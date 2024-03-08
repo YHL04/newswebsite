@@ -99,9 +99,9 @@ def specific_category(request, date, category):
 
     categories = {"transformer": ["transformer", "llm", "gpt", "tokenizer"],
                   "diffusion": ["diffusion", "ddpm", "generative"],
-                  "reinforcement": ["reinforcement", "atari", "ppo", "rl"],
+                  "reinforcement": ["reinforcement", "atari", "ppo"],
                   "other": ["transformer", "llm", "gpt", "tokenizer", "diffusion",
-                            "ddpm", "generative", "reinforcement", "atari", "ppo", "rl"]}
+                            "ddpm", "generative", "reinforcement", "atari", "ppo"]}
 
     date = datetime.strptime(date, '%Y-%m-%d')
     return daily_paper_render(request, date=date, latest_today=LatestToday().date, category=category, categories=categories)
