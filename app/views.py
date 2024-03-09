@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 
 from datetime import datetime, timedelta
@@ -113,3 +113,9 @@ def specific_category(request, date, category):
     date = datetime.strptime(date, '%Y-%m-%d')
     return daily_paper_render(request, date=date, latest_today=LatestToday().date, category=category, categories=categories)
 
+
+def post_like(request):
+    total_likes = 0
+    flag = True
+
+    return JsonResponse({"total_likes": total_likes, "flag": flag})
