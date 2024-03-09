@@ -85,32 +85,24 @@ def index(request):
 
 
 def specific_date(request, date):
-    if date == "favicon.ico":
-        # not sure why it goes to /favicon.ico but return nothing
-        # so it returns back to original page
+    try:
+        date = datetime.strptime(date, '%Y-%m-%d')
+    except Exception as e:
+        if date == "about":
+            return about(request)
         return HttpResponse("")
-
-    if date.endswith(".txt"):
-        return HttpResponse("")
-
-    if date == "about":
-        return about(request)
 
     date = datetime.strptime(date, '%Y-%m-%d')
     return daily_paper_render(request, date=date, latest_today=LatestToday().date)
 
 
 def specific_category(request, date, category):
-    if date == "favicon.ico":
-        # not sure why it goes to /favicon.ico but return nothing
-        # so it returns back to original page
+    try:
+        date = datetime.strptime(date, '%Y-%m-%d')
+    except Exception as e:
+        if date == "about":
+            return about(request)
         return HttpResponse("")
-
-    if date.endswith(".txt"):
-        return HttpResponse("")
-
-    if date == "about":
-        return about(request)
 
     categories = {"transformer": ["transformer", "llm", "gpt", "tokenizer"],
                   "diffusion": ["diffusion", "ddpm"],
@@ -118,7 +110,6 @@ def specific_category(request, date, category):
                   "other": ["transformer", "llm", "gpt", "tokenizer", "diffusion",
                             "ddpm", "reinforcement", "atari"]}
 
-    date = datetime.strptime(date, '%Y-%m-%d')
     return daily_paper_render(request, date=date, latest_today=LatestToday().date, category=category, categories=categories)
 
 
