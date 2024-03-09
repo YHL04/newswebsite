@@ -105,10 +105,10 @@ def specific_category(request, date, category):
         return HttpResponse("")
 
     categories = {"transformer": ["transformer", "llm", "gpt", "tokenizer"],
-                  "diffusion": ["diffusion", "ddpm", "generative"],
+                  "diffusion": ["diffusion", "ddpm"],
                   "reinforcement": ["reinforcement", "atari"],
                   "other": ["transformer", "llm", "gpt", "tokenizer", "diffusion",
-                            "ddpm", "generative", "reinforcement", "atari"]}
+                            "ddpm", "reinforcement", "atari"]}
 
     date = datetime.strptime(date, '%Y-%m-%d')
     return daily_paper_render(request, date=date, latest_today=LatestToday().date, category=category, categories=categories)
