@@ -88,8 +88,6 @@ def specific_date(request, date):
     try:
         date = datetime.strptime(date, '%Y-%m-%d')
     except Exception as e:
-        if date == "about":
-            return about(request)
         return HttpResponse("")
 
     date = datetime.strptime(date, '%Y-%m-%d')
@@ -100,11 +98,6 @@ def specific_category(request, date, category):
     try:
         date = datetime.strptime(date, '%Y-%m-%d')
     except Exception as e:
-        if date == "about":
-            return about(request)
-        if date == "accounts" and category == "logout":
-            return redirect("account_logout")
-
         return HttpResponse("")
 
     categories = {"transformer": ["transformer", "llm", "gpt", "tokenizer"],
