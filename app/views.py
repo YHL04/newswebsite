@@ -1,5 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
+from django.shortcuts import get_object_or_404
 
 from datetime import datetime, timedelta
 
@@ -127,7 +128,14 @@ def about(request):
 
 
 def post_like(request):
-    total_likes = 0
-    flag = True
+    if request.POST.get('action') == 'post':
+        # postid = int(request.POST.get('post_id'))
+        # post_obj = get_object_or_404(News, id=postid)
 
-    return JsonResponse({"total_likes": total_likes, "flag": flag})
+        total_likes = 0
+        flag = True
+
+        return JsonResponse({"total_likes": total_likes, "flag": flag})
+
+    return HttpResponse("Error access denied")
+

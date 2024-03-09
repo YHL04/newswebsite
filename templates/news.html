@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 <!DOCTYPE html>
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <link rel="stylesheet" href="{% static 'button.css' %}">
@@ -11,9 +13,14 @@
 
 <html>
 
-<ul>
+<ul class="nav navbar-nav">
     <li><a href="{% url 'index' %}">Main</a></li>
     <li><a href="{% url 'about' %}">About</a></li>
+    {% if user.is_authenticated %}
+    <li style="float:right"><a href="{% url 'account_logout' %}">Welcome, {{ user.username }}! Logout</a></li>
+    {% else %}
+    <li style="float:right"><a href="{% provider_login_url 'google' %}">Login</a></li>
+    {% endif %}
 </ul>
 
 <head>
@@ -22,8 +29,7 @@
 
 <body>
 
-<h1>Daily AI News</h1>
-
+<h1>Daily AI Papers!</h1>
 <p>Discover the most recent AI papers ranked by algorithm. <b>:)</b></p>
 
 <div class="extra-row">
@@ -83,8 +89,12 @@
         <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
 
             <div class="grid-info">
-                <button id="{{ news.id }}" data-url="{% url 'post_like' %}" class="likebtn">Like</button>
+                <button id="{{ news.id }}" data-url="{% url 'post_like' %}" class="likebtn">
+                    <i id="icons" class="icofont icofont-thumbs-up icofont-2x"></i>
+                </button>
             </div>
+
+            <span>{{news.total_likes}}</span>
 
         <script>
             $(document).ready(function () {
