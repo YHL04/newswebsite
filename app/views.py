@@ -35,7 +35,7 @@ def daily_paper_render(request, date, latest_today, category="none", categories=
     news_data = [news for news in news_data if datetime.strptime(news.date, '%Y-%m-%d') == date]
     news_data.sort(key=lambda x: -x.citation_rank)
 
-    if category is not "none":
+    if category != "none":
 
         news_data_ = []
         for news in news_data:
