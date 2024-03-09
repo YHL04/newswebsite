@@ -1,6 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from datetime import datetime, timedelta
 
@@ -127,15 +128,21 @@ def about(request):
     return HttpResponse(template.render(context, request))
 
 
+@login_required
 def post_like(request):
     if request.POST.get('action') == 'post':
-        # postid = int(request.POST.get('post_id'))
-        # post_obj = get_object_or_404(News, id=postid)
+        postid = int(request.POST.get('post_id'))
+        post_obj = get_object_or_404(News, id=postid)
 
-        total_likes = 0
-        flag = True
+        if post_obj.likes.filter(id=request.user_id).exists():
+            post_obj.likes.remove(request.user)
+            post_obj.save()
+            flag = False
+        else:
+            post_obj.likes.add(request.user)
+            post_obj.save()
+            flag = True
 
-        return JsonResponse({"total_likes": total_likes, "flag": flag})
-
+        return JsonResponse({"total_likes": post_obj.total_likes, "flag": flag})
     return HttpResponse("Error access denied")
 
