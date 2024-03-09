@@ -91,6 +91,9 @@ def specific_date(request, date):
     if date.endswith(".txt"):
         return HttpResponse("")
 
+    if date == "about":
+        return about(request)
+
     date = datetime.strptime(date, '%Y-%m-%d')
     return daily_paper_render(request, date=date, latest_today=LatestToday().date)
 
@@ -103,6 +106,9 @@ def specific_category(request, date, category):
 
     if date.endswith(".txt"):
         return HttpResponse("")
+
+    if date == "about":
+        return about(request)
 
     categories = {"transformer": ["transformer", "llm", "gpt", "tokenizer"],
                   "diffusion": ["diffusion", "ddpm"],
