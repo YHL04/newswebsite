@@ -86,8 +86,8 @@ SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': ['profile', 'email'],
         'APP': {
-            'client_id': 'diesel-ring-416621',  # YOUR_CLIENT_ID
-            'secret': 'AIzaSyC5Jw7NWlKnGOWeaNQa998H-HxdGGjxGfE',  # YOUR_CLIENT_SECRET
+            'client_id': '1043734398346-llfe70t9phllrcptit10fl4ajngo9pab.apps.googleusercontent.com',  # YOUR_CLIENT_ID
+            'secret': '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',  # YOUR_CLIENT_SECRET
             'key': ''
         }
     }
