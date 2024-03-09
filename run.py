@@ -22,10 +22,10 @@ def drop_old():
 
 def scrape(keywords, categories):
     # scrape from arXiv
-    # for category in categories:
-    #     print("Scraping %s" % category)
-    #     data = scraper_recent(c=category)
-    #     store_to_db(data)
+    for category in categories:
+        print("Scraping %s" % category)
+        data = scraper_recent(c=category)
+        store_to_db(data)
 
     # scrape from arXiv
     for keyword in keywords:

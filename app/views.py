@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from datetime import datetime, timedelta
@@ -90,7 +90,6 @@ def specific_date(request, date):
     except Exception as e:
         return HttpResponse("")
 
-    date = datetime.strptime(date, '%Y-%m-%d')
     return daily_paper_render(request, date=date, latest_today=LatestToday().date)
 
 
