@@ -81,15 +81,40 @@
 
         <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
 
-        {% if news.liked %}
             <div class="grid-info">
-                <a class="like-button-decr">Unlike</a>
+                <button id="{{ news.id }}" data-url="{% url 'post_like' %}" class="likebtn">Like</button>
             </div>
-        {% else %}
-            <div class="grid-info">
-                <a class="like-button-incr">Like</a>
-            </div>
-        {% endif %}
+
+        <script>
+            $(document).ready(function () {
+                $(".likebtn").click(function (event) {
+                    event.preventDefault();
+                    var ansid = $(this).attr('id');
+                    console.log(ansid)
+                    $.ajax({
+                        url: $(this).data('url'),
+                        type: 'POST',
+                        data: {
+                            'post_id': ansid,
+                            'csrfmiddlewaretoken': "{{ csrf_token }}",
+                            'action': 'post'
+                        },
+                        success: function (response) {
+                            $('#like_count' + ansid).text(response['total_likes']);
+                            console.log(response)
+                            if (response['flag']) {
+                                $('#' + ansid).addClass('text-danger');
+                            } else {
+                                $('#' + ansid).removeClass('text-danger');
+                            }
+                        },
+                        error: function (rs, e) {
+                            console.log(rs.response)
+                        }
+                    });
+                });
+            });
+        </script>
 
 
         <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">Relevance {{ news.citation_rank }}</b></p></div>
