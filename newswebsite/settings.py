@@ -44,8 +44,6 @@ PRODUCTION = True
 ALLOWED_HOSTS = ['127.0.0.1', 'www.aipapernews.com']
 CSRF_TRUSTED_ORIGINS = ['https://yhlim04.pythonanywhere.com', 'http://www.aipapernews.com', 'https://www.aipapernews.com']
 
-SECURE_SSL_REDIRECT = True
-
 # Application definition
 
 INSTALLED_APPS = [
