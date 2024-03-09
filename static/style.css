@@ -10,7 +10,6 @@ html * {
     margin-right: auto;
 }
 
-
 .grid-container {
     position: relative;
     display: grid;
@@ -66,7 +65,7 @@ html * {
 }
 
 .calendar-row {
-    height: 80px;
+    height: max(80px, 3.4em);
     width: 100%;
 }
 
