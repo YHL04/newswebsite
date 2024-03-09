@@ -2,7 +2,6 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
 
 from datetime import datetime, timedelta
 
@@ -103,6 +102,9 @@ def specific_category(request, date, category):
     except Exception as e:
         if date == "about":
             return about(request)
+        if date == "accounts" and category == "logout":
+            return redirect("account_logout")
+
         return HttpResponse("")
 
     categories = {"transformer": ["transformer", "llm", "gpt", "tokenizer"],
@@ -137,9 +139,4 @@ def post_like(request):
 
         return JsonResponse({"total_likes": post_obj.total_likes, "flag": flag})
     return HttpResponse("Error access denied")
-
-
-def log_out(request):
-    logout(request)
-    redirect('index')
 
