@@ -70,6 +70,13 @@ html * {
     width: 100%;
 }
 
+@media only screen and (max-width: 768px) {
+    .calendar-row {
+        height: 100px;
+        width: 100%;
+    }
+}
+
 .calendar {
     margin: 10px;
     height: 60px;

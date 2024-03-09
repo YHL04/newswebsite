@@ -5,6 +5,13 @@
     padding-top: 30px;
 }
 
+@media only screen and (max-width: 768px) {
+    .category-group {
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+}
+
 .category {
     margin: 2px;
     background-color: hsl(218, 30%, 20%);
