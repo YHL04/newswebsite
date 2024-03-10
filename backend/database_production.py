@@ -43,21 +43,40 @@ def reinit_db():
             db=DBNAME,
         )
         cur = con.cursor()
+        # cur.execute("DROP TABLE app_news;")
+        # cur.execute(
+        #     "CREATE TABLE app_news"
+        #     "("
+        #     "id varchar(255) NOT NULL,"
+        #     "title TEXT NOT NULL,"
+        #     "date TEXT NOT NULL,"
+        #     "authors TEXT NOT NULL,"
+        #     "categories TEXT NOT NULL,"
+        #     "link TEXT NOT NULL,"
+        #     "text TEXT NOT NULL,"
+        #     "citation_rank TEXT NOT NULL,"
+        #     "final_rank TEXT NOT NULL,"
+        #     "UNIQUE (id)"
+        #     ")")
+        # cur.execute("DROP TABLE app_user;")
         cur.execute(
-            "CREATE TABLE app_news"
+            "CREATE TABLE app_user"
+            "("
+            "userid varchar(255) NOT NULL,"
+            "UNIQUE (userid)"
+            ")"
+        )
+        # cur.execute("DROP TABLE app_news_likes;")
+        cur.execute(
+            "CREATE TABLE app_news_likes"
             "("
             "id varchar(255) NOT NULL,"
-            "title TEXT NOT NULL,"
-            "date TEXT NOT NULL,"
-            "authors TEXT NOT NULL,"
-            "categories TEXT NOT NULL,"
-            "link TEXT NOT NULL,"
-            "text TEXT NOT NULL,"
-            "citation_rank TEXT NOT NULL,"
-            "final_rank TEXT NOT NULL,"
-            "likes TEXT NOT NULL,"
-            "UNIQUE (id)"
-            ")")
+            "userid varchar(255) NOT NULL,"
+            "FOREIGN KEY (id) REFERENCES app_news(id),"
+            "FOREIGN KEY (userid) REFERENCES app_user(userid),"
+            "UNIQUE (id, userid)"
+            ")"
+        )
         con.commit()
         con.close()
 
@@ -91,7 +110,6 @@ def get_from_db():
              'text'         : d[6],
              'citation_rank': d[7],
              'final_rank'   : d[8],
-             'likes'        : d[9],
             }
             for d in data
         ]
@@ -115,12 +133,12 @@ def store_to_db(data):
             db=DBNAME,
         )
         data = [(str(d['id']), str(d["title"]), str(d["date"]), str(d["authors"]), str(d["categories"]),
-                 str(d["link"]), str(d["text"]), str(d["citation_rank"]), str(d["final_rank"]), str(d["likes"]))
+                 str(d["link"]), str(d["text"]), str(d["citation_rank"]), str(d["final_rank"]))
                 for d in data]
 
         cur = con.cursor()
         cur.executemany(
-            "INSERT IGNORE INTO app_news VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            "INSERT IGNORE INTO app_news VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)",
             data)
         con.commit()
         con.close()

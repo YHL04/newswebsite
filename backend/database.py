@@ -13,9 +13,10 @@ def reinit_db(file="db.sqlite"):
     # set the news database as news.db
     con = sqlite3.connect(file)
     cur = con.cursor()
+    cur.execute("DROP TABLE app_news;")
     cur.execute(
         "CREATE TABLE app_news"
-        "(id TEXT NOT NULL,"
+        "(id varchar(255) NOT NULL,"
         " title TEXT NOT NULL,"
         " date TEXT NOT NULL,"
         " authors TEXT NOT NULL,"
@@ -26,7 +27,18 @@ def reinit_db(file="db.sqlite"):
         " final_rank TEXT NOT NULL,"
         " likes TEXT NOT NULL,"
         " unique (id)"
-        ")")
+        ")"
+    )
+    cur.execute("DROP TABLE app_news_likes;")
+    cur.execute(
+        "CREATE TABLE app_news_likes"
+        "(news_id varchar(255) NOT NULL,"
+        " user_id varchar(255) NOT NULL,"
+        " FOREIGN KEY (news_id) REFERENCES app_news(news_id)"
+        " FOREIGN KEY (user_id) REFERENCES user(user_id)"
+        " unique (news_id, user_id)"
+        ")"
+    )
     con.commit()
 
     con.close()

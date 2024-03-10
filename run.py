@@ -1,6 +1,5 @@
 
 
-import threading
 from datetime import datetime, timedelta
 
 from backend import scraper, scraper_recent, ranker, reinit_db, store_to_db, get_from_db, delete_from_db
@@ -22,15 +21,15 @@ def drop_old():
 
 def scrape(keywords, categories):
     # scrape from arXiv
-    for category in categories:
-        print("Scraping %s" % category)
-        data = scraper_recent(c=category)
+    for keyword in keywords:
+        print("Scraping %s" % keyword)
+        data = scraper(query=keyword, max_results=1000)
         store_to_db(data)
 
     # scrape from arXiv
-    for keyword in keywords:
-        print("Scraping %s" % keyword)
-        data = scraper(query=keyword, max_results=500)
+    for category in categories:
+        print("Scraping %s" % category)
+        data = scraper_recent(c=category)
         store_to_db(data)
 
 

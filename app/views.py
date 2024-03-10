@@ -114,8 +114,12 @@ def about(request):
     return HttpResponse(template.render(context, request))
 
 
-@login_required
+# @login_required
 def post_like(request):
+    print("CALLED POST LIKE")
+    print(request.user_id)
+    print(request.user)
+
     if request.POST.get('action') == 'post':
         postid = int(request.POST.get('post_id'))
         post_obj = get_object_or_404(News, id=postid)

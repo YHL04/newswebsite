@@ -98,9 +98,16 @@
         <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
 
             <div class="grid-info">
-                <button id="{{ news.id }}" data-url="{% url 'post_like' %}" class="likebtn">Likes: {{ news.total_likes}}
+                <button id="{{ news.id }}" data-url="{% url 'post_like' %}" class="likebtn">
+                    Likes: {{ news.total_likes }}
                 </button>
             </div>
+
+        <!-- jQuery library -->
+        <script src="{% static "js/jquery-3.4.1.min.js" %}"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="{% static "js/bootstrap.min.js" %}"></script>
 
         <script>
             $(document).ready(function () {
