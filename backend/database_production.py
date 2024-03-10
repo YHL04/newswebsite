@@ -162,7 +162,7 @@ def delete_from_db(data):
 
         cur = con.cursor()
         cur.executemany(
-            "DELETE from app_news where id=%s",
+            "DELETE from app_news where news_id=%s",
             data
         )
         con.commit()
