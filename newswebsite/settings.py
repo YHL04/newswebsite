@@ -39,7 +39,7 @@ SECRET_KEY = 'django-insecure-b%8ylptw^jo068dd170i_i49m7@^p#6zq^3jbxa_px)0t4#ru@
 DEBUG = True
 
 # set production to false during development
-PRODUCTION = False
+PRODUCTION = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.aipapernews.com']
 CSRF_TRUSTED_ORIGINS = ['https://yhlim04.pythonanywhere.com', 'http://www.aipapernews.com', 'https://www.aipapernews.com']
