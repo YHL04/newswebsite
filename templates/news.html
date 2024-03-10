@@ -98,7 +98,7 @@
         <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
 
             <div class="grid-info">
-                {% if liked[news.news_id] %}
+                {% if liked.news.news_id %}
                 <button  class="like-button active" id="{{ news.news_id }}" data-url="{% url 'post_like' %}">
                     <p class="like-button-text active" id="text{{ news.news_id }}">Likes: {{ news.total_likes }}</p>
                 </button>
