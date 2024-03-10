@@ -1,8 +1,13 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
-# Create your models here.
+class User(models.Model):
+    user_id = models.CharField(max_length=1_000_000, unique=True, primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'app_user'
+
 
 class News(models.Model):
     news_id = models.CharField(max_length=1_000_000, unique=True, primary_key=True)
@@ -23,13 +28,4 @@ class News(models.Model):
     class Meta:
        managed = False
        db_table = 'app_news'
-
-
-class User(models.Model):
-    user_id = models.CharField(max_length=1_000_000, unique=True, primary_key=True)
-
-    class Meta:
-        managed = False
-        db_table = 'app_user'
-
 
