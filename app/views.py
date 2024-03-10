@@ -75,7 +75,8 @@ def daily_paper_render(request, date, latest_today, category="none", categories=
         "month": month,
         "day": day,
         "next": next,
-        "category": category
+        "category": category,
+        "liked": check_liked(request, news_data)
     }
     return HttpResponse(template.render(context, request))
 
@@ -112,6 +113,24 @@ def about(request):
     template = loader.get_template("about.html")
     context = {}
     return HttpResponse(template.render(context, request))
+
+
+def check_liked(request, news_data):
+    liked = {}
+    for news in news_data:
+        liked[news.news_id] = False
+
+    # check if user is authenticated
+    try:
+        email = str(request.user.email)
+    except Exception as e:
+        return liked
+
+    for news in news_data:
+        if news.likes.filter(user_id=request.user.email).exists():
+            liked[news.news_id] = True
+
+    return liked
 
 
 def post_like(request):
