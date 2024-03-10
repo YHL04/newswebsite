@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from datetime import datetime, timedelta
 
-from .models import News
+from .models import News, User
 
 
 class LatestToday:
@@ -125,11 +125,15 @@ def post_like(request):
         post_obj = get_object_or_404(News, news_id=post_id)
 
         if post_obj.likes.filter(email=email).exists():
-            post_obj.likes.remove(request.user)
+            user = User(user_id=email)
+            user.save()
+            post_obj.likes.remove(user)
             post_obj.save()
             flag = False
         else:
-            post_obj.likes.add(request.user)
+            user = User(user_id=email)
+            user.save()
+            post_obj.likes.add(user)
             post_obj.save()
             flag = True
 
