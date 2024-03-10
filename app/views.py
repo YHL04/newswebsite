@@ -124,7 +124,7 @@ def post_like(request):
         post_id = request.GET['post_id']
         post_obj = get_object_or_404(News, news_id=post_id)
 
-        if post_obj.likes.filter(email=email).exists():
+        if post_obj.likes.filter(user_id=email).exists():
             user = User(user_id=email)
             user.save()
             post_obj.likes.remove(user)

@@ -29,3 +29,23 @@ class News(models.Model):
        managed = False
        db_table = 'app_news'
 
+
+"""
+date_joined
+email
+emailaddress
+first_name
+groups
+id
+is_active
+is_staff
+is_superuser
+last_login
+last_name
+logentry
+password
+socialaccount
+user_like
+user_permissions
+username
+"""
