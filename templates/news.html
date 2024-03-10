@@ -123,7 +123,9 @@
         type: "GET",
         url: $(this).attr("data-url"),
         data:{
-                 post_id: catid
+                 "post_id": "catid",
+                 "csrfmiddlewaretoken: "{{ csrf_token }}",
+                 "action": "get"
         },
         success: function(data)
         {
