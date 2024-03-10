@@ -68,7 +68,7 @@ def daily_paper_render(request, date, latest_today, category="none", categories=
 
     template = loader.get_template("news.html")
     context = {
-        "news_data": news_data,
+        "news_data": zip(news_data, check_liked(request, news_data)),
         "curr_date": curr_date.strftime('%Y-%m-%d'),
         "prev_date": prev_date.strftime('%Y-%m-%d'),
         "next_date": next_date.strftime('%Y-%m-%d'),
@@ -76,7 +76,6 @@ def daily_paper_render(request, date, latest_today, category="none", categories=
         "day": day,
         "next": next,
         "category": category,
-        "liked": check_liked(request, news_data)
     }
     return HttpResponse(template.render(context, request))
 
@@ -116,9 +115,7 @@ def about(request):
 
 
 def check_liked(request, news_data):
-    liked = {}
-    for news in news_data:
-        liked[news.news_id] = False
+    liked = [False for _ in news_data]
 
     # check if user is authenticated
     try:
@@ -126,9 +123,9 @@ def check_liked(request, news_data):
     except Exception as e:
         return liked
 
-    for news in news_data:
-        if news.likes.filter(user_id=request.user.email).exists():
-            liked[news.news_id] = True
+    for i, news in enumerate(news_data):
+        if news.likes.filter(user_id=email).exists():
+            liked[i] = True
 
     return liked
 
