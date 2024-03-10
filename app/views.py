@@ -114,17 +114,15 @@ def about(request):
     return HttpResponse(template.render(context, request))
 
 
-# @login_required
 def post_like(request):
-    print("CALLED POST LIKE")
-    print(request.user_id)
-    print(request.user)
+    if not hasattr(request, "user_id"):
+        return JsonResponse({"new_string": "Login Required", "flag": True})
 
-    if request.POST.get('action') == 'post':
-        postid = int(request.POST.get('post_id'))
-        post_obj = get_object_or_404(News, id=postid)
+    if request.method == 'GET':
+        post_id = request.GET['post_id']
+        post_obj = get_object_or_404(News, news_id=post_id)
 
-        if post_obj.likes.filter(id=request.user_id).exists():
+        if post_obj.likes.filter(user_id=request.user_id).exists():
             post_obj.likes.remove(request.user)
             post_obj.save()
             flag = False
@@ -133,6 +131,8 @@ def post_like(request):
             post_obj.save()
             flag = True
 
-        return JsonResponse({"total_likes": post_obj.total_likes, "flag": flag})
-    return HttpResponse("Error access denied")
+        new_string = "Likes: {}".format(post_obj.total_likes)
+        return JsonResponse({"new_string": new_string, "flag": flag})
+
+    return HttpResponse("Error")
 

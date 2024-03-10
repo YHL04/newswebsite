@@ -98,47 +98,10 @@
         <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
 
             <div class="grid-info">
-                <button id="{{ news.news_id }}" data-url="{% url 'post_like' %}" class="likebtn">
-                    Likes: {{ news.total_likes }}
+                <button  class="like-button" id="{{ news.news_id }}" data-url="{% url 'post_like' %}">
+                    <p class="like-button-text" id="text{{ news.news_id }}">Likes: {{ news.total_likes }}</p>
                 </button>
             </div>
-
-        <!-- jQuery library -->
-        <script src="{% static "js/jquery-3.4.1.min.js" %}"></script>
-
-        <!-- Latest compiled JavaScript -->
-        <script src="{% static "js/bootstrap.min.js" %}"></script>
-
-        <script>
-            $(document).ready(function () {
-                $(".likebtn").click(function (event) {
-                    event.preventDefault();
-                    var ansid = $(this).attr('id');
-                    console.log(ansid)
-                    $.ajax({
-                        url: $(this).data('url'),
-                        type: 'POST',
-                        data: {
-                            'post_id': ansid,
-                            'csrfmiddlewaretoken': "{{ csrf_token }}",
-                            'action': 'post'
-                        },
-                        success: function (response) {
-                            $('#like_count' + ansid).text(response['total_likes']);
-                            console.log(response)
-                            if (response['flag']) {
-                                $('#' + ansid).addClass('text-danger');
-                            } else {
-                                $('#' + ansid).removeClass('text-danger');
-                            }
-                        },
-                        error: function (rs, e) {
-                            console.log(rs.response)
-                        }
-                    });
-                });
-            });
-        </script>
 
         <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">Relevance {{ news.citation_rank }}</b></p></div>
 
@@ -149,6 +112,35 @@
     </div>
     {% endfor %}
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $('.like-button').click(function(){
+    var catid;
+    catid = $(this).attr("id");
+    $.ajax(
+    {
+        type: "GET",
+        url: $(this).attr("data-url"),
+        data:{
+                 post_id: catid
+        },
+        success: function(data)
+        {
+            $('#text' + catid ).text(data['new_string']);
+            if (data['flag']) {
+                $('#' + catid).toggleClass('active');
+                $('#text' + catid).toggleClass('active');
+
+            } else {
+                $('#' + catid).toggleClass('active');
+                $('#text' + catid).toggleClass('active');
+
+            }
+        }
+     })
+});
+</script>
 
 </body>
 
