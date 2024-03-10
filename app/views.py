@@ -115,16 +115,16 @@ def about(request):
 
 
 def post_like(request):
-    if not hasattr(request, "email"):
+    try:
+        user_id = request.user.email
+    except Exception as e:
         return JsonResponse({"new_string": "Login Required", "flag": True})
-
-    request.user_id = request.email
 
     if request.method == 'GET':
         post_id = request.GET['post_id']
         post_obj = get_object_or_404(News, news_id=post_id)
 
-        if post_obj.likes.filter(user_id=request.user_id).exists():
+        if post_obj.likes.filter(user_id=user_id).exists():
             post_obj.likes.remove(request.user)
             post_obj.save()
             flag = False
