@@ -98,7 +98,7 @@
         <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
 
             <div class="grid-info">
-                <button id="{{ news.id }}" data-url="{% url 'post_like' %}" class="likebtn">
+                <button id="{{ news.news_id }}" data-url="{% url 'post_like' %}" class="likebtn">
                     Likes: {{ news.total_likes }}
                 </button>
             </div>

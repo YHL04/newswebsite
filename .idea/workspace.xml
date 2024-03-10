@@ -5,28 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="fix bug">
-      <change afterPath="$PROJECT_DIR$/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/jquery-3.4.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/jquery-3.4.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database_production.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database_production.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scholar.log" beforeDir="false" afterPath="$PROJECT_DIR$/scholar.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/showdb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +70,7 @@
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run (1)">
+  <component name="RunManager" selected="Python.showdb">
     <configuration name="arxiv_scraper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="newswebsite" />
       <option name="ENV_FILES" value="" />
@@ -201,8 +183,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run (1)" />
         <item itemvalue="Python.showdb" />
+        <item itemvalue="Python.run (1)" />
         <item itemvalue="Python.database" />
         <item itemvalue="Python.debug" />
         <item itemvalue="Python.arxiv_scraper" />
@@ -224,14 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709140123262</updated>
-    </task>
-    <task id="LOCAL-00050" summary="fix bugs">
-      <option name="closed" value="true" />
-      <created>1709590196443</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1709590196445</updated>
     </task>
     <task id="LOCAL-00051" summary="update README.md">
       <option name="closed" value="true" />
@@ -617,7 +591,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710016285486</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1710075094375</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1710075094375</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
