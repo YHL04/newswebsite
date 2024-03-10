@@ -116,7 +116,7 @@ def about(request):
 
 def post_like(request):
     try:
-        user_id = request.user.email
+        user_id = str(request.user.email)
     except Exception as e:
         return JsonResponse({"new_string": "Login Required", "flag": True})
 
