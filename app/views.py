@@ -116,7 +116,7 @@ def about(request):
 
 def post_like(request):
     try:
-        user_id = str(request.user.email)
+        email = str(request.user.email)
     except Exception as e:
         return JsonResponse({"new_string": "Login Required", "flag": True})
 
@@ -124,7 +124,7 @@ def post_like(request):
         post_id = request.GET['post_id']
         post_obj = get_object_or_404(News, news_id=post_id)
 
-        if post_obj.likes.filter(user_id=user_id).exists():
+        if post_obj.likes.filter(email=email).exists():
             post_obj.likes.remove(request.user)
             post_obj.save()
             flag = False
