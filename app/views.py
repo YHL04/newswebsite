@@ -115,6 +115,8 @@ def about(request):
 
 
 def post_like(request):
+    print(request.__dict__.keys())
+
     if not hasattr(request, "user_id"):
         return JsonResponse({"new_string": "Login Required", "flag": True})
 
