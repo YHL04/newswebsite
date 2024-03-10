@@ -115,10 +115,10 @@ def about(request):
 
 
 def post_like(request):
-    print(request.__dict__.keys())
-
-    if not hasattr(request, "user_id"):
+    if not hasattr(request, "email"):
         return JsonResponse({"new_string": "Login Required", "flag": True})
+
+    request.user_id = request.email
 
     if request.method == 'GET':
         post_id = request.GET['post_id']
