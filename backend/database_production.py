@@ -72,8 +72,8 @@ def reinit_db():
             "CREATE TABLE app_news_likes"
             "(news_id varchar(255) NOT NULL,"
             " user_id varchar(255) NOT NULL,"
-            " FOREIGN KEY (news_id) REFERENCES app_news(news_id),"
-            " FOREIGN KEY (user_id) REFERENCES app_user(user_id),"
+            " FOREIGN KEY (news_id) REFERENCES app_news(news_id) ON DELETE CASCADE,"
+            " FOREIGN KEY (user_id) REFERENCES app_user(user_id) ON DELETE CASCADE,"
             " unique (news_id, user_id)"
             ")"
         )
@@ -167,4 +167,8 @@ def delete_from_db(data):
         )
         con.commit()
         con.close()
+
+
+if __name__ == "__main__":
+    reinit_db()
 

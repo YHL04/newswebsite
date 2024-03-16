@@ -3,7 +3,18 @@
 from backend import reinit_db, get_from_db
 
 
-reinit_db()
+# reinit_db()
+
+
+
+# datas = get_from_db()
+#
+# for data in datas:
+#     if "adapting to teammates" in data['title'].lower():
+#         print(data)
+#
+#     if "v3" in data['title'].lower():
+#         print(data)
 
 
 # datas = get_from_db()
