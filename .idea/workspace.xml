@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="fix ranker">
+    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="upgrade ranker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/rankers/citation_ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/rankers/citation_ranker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scholar.log" beforeDir="false" afterPath="$PROJECT_DIR$/scholar.log" afterDir="false" />
@@ -84,7 +84,7 @@
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.showdb">
+  <component name="RunManager" selected="Python.debug">
     <configuration name="database" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="newswebsite" />
       <option name="ENV_FILES" value="" />
@@ -197,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.showdb" />
+        <item itemvalue="Python.debug" />
         <item itemvalue="Python.run (1)" />
+        <item itemvalue="Python.showdb" />
         <item itemvalue="Python.database_production" />
         <item itemvalue="Python.database" />
-        <item itemvalue="Python.debug" />
       </list>
     </recent_temporary>
   </component>
@@ -220,14 +220,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709140123262</updated>
-    </task>
-    <task id="LOCAL-00079" summary="fix bugs">
-      <option name="closed" value="true" />
-      <created>1709987182032</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1709987182032</updated>
     </task>
     <task id="LOCAL-00080" summary="added login">
       <option name="closed" value="true" />
@@ -613,7 +605,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710618206670</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="upgrade ranker">
+      <option name="closed" value="true" />
+      <created>1710620464798</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1710620464798</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -651,6 +651,7 @@
     <MESSAGE value="category goes to text date" />
     <MESSAGE value="made it more efficient" />
     <MESSAGE value="fix ranker" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix ranker" />
+    <MESSAGE value="upgrade ranker" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade ranker" />
   </component>
 </project>

@@ -14,7 +14,7 @@ def citation_ranker_semantic_scholar(data, url="https://www.semanticscholar.org/
 
         authors = d["authors"]
 
-        # rank = ( summation( citation+(i == 0)*citation*2 ) / num_authors ) * num_authors**(1/3)
+        # rank = ( summation( citation+(i == 0)*citation*2 ) / (num_authors+2) ) * num_authors**(1/3)
         citations, final, num_authors = 0, 0, 0
         for i, author in enumerate(authors):  # [:1]:
             try:
@@ -32,7 +32,7 @@ def citation_ranker_semantic_scholar(data, url="https://www.semanticscholar.org/
         if num_authors == 0:
             final = 1
         else:
-            final = (final / num_authors) * (num_authors**(1/3))
+            final = (final / (num_authors+2)) * (num_authors**(1/3))
 
         citations = round(citations, 2)
         final = round(final, 2)
