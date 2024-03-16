@@ -118,23 +118,21 @@ def check_liked(request, news_data):
     liked = [False for _ in news_data]
 
     # check if user is authenticated
-    # try:
-    #     email = str(request.user.email)
-    # except Exception as e:
-    #     return liked
+    try:
+        email = str(request.user.email)
+    except Exception as e:
+        return liked
 
-    email = "22limyihu@gmail.com"
+    # for i, news in enumerate(news_data):
+    #     if news.likes.filter(user_id=email).exists():
+    #         liked[i] = True
+
+    user = get_object_or_404(User, user_id=email)
+    liked_news = user.likes.objects.all()
 
     for i, news in enumerate(news_data):
-        if news.likes.filter(user_id=email).exists():
+        if news in liked_news:
             liked[i] = True
-
-    # user = get_object_or_404(User, user_id=email)
-    # liked_news = user.likes.objects.all()
-    #
-    # for i, news in enumerate(news_data):
-    #     if news in liked_news:
-    #         liked[i] = True
 
     return liked
 
