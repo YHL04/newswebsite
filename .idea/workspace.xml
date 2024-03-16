@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="added like button">
+    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="fixed like database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database_production.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database_production.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/rankers/citation_ranker.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/rankers/citation_ranker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scholar.log" beforeDir="false" afterPath="$PROJECT_DIR$/scholar.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/showdb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,14 +219,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709140123262</updated>
-    </task>
-    <task id="LOCAL-00072" summary="change font">
-      <option name="closed" value="true" />
-      <created>1709984995026</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1709984995026</updated>
     </task>
     <task id="LOCAL-00073" summary="change font">
       <option name="closed" value="true" />
@@ -618,7 +604,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710105113576</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="fixed like database">
+      <option name="closed" value="true" />
+      <created>1710606295557</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1710606295557</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -652,6 +646,7 @@
     <MESSAGE value="added login" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="added like button" />
-    <option name="LAST_COMMIT_MESSAGE" value="added like button" />
+    <MESSAGE value="fixed like database" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed like database" />
   </component>
 </project>

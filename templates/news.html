@@ -46,15 +46,30 @@
 
 <div class="calendar-row">
     {% if next %}
-    <button class="arrow-right" onclick="location.href='/{{ next_date }}'"></button>
+        {% if category == "none" %}
+        <button class="arrow-right" onclick="location.href='/{{ next_date }}/'"></button>
+        {% else %}
+        <button class="arrow-right" onclick="location.href='/{{ next_date }}/{{ category }}/'"></button>
+        {% endif %}
+
     {% else %}
-    <button class="arrow-empty" onclick="location.href='/{{ curr_date }}'"></button>
+        {% if category == "none" %}
+        <button class="arrow-empty" onclick="location.href='/{{ curr_date }}/'"></button>
+        {% else %}
+        <button class="arrow-empty" onclick="location.href='/{{ curr_date }}/{{ category }}/'"></button>
+        {% endif %}
+
     {% endif %}
     <div class="calendar">
         <p class="calendar-month">{{ month }}</p>
         <p class="calendar-day">{{ day }}</p>
     </div>
-    <button class="arrow-left" onclick="location.href='/{{ prev_date }}'"></button>
+
+    {% if category == "none" %}
+    <button class="arrow-left" onclick="location.href='/{{ prev_date }}/'"></button>
+    {% else %}
+    <button class="arrow-left" onclick="location.href='/{{ prev_date }}/{{ category }}/'"></button>
+    {% endif %}
 
     <div class="category-group">
     {% if category == "none" %}
