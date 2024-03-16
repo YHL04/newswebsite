@@ -123,27 +123,25 @@ def check_liked(request, news_data):
     except Exception as e:
         return liked
 
-    # for i, news in enumerate(news_data):
-    #     if news.likes.filter(user_id=email).exists():
-    #         liked[i] = True
-
-    user = get_object_or_404(User, user_id=email)
-    liked_news = user.likes.objects.all()
-
     for i, news in enumerate(news_data):
-        if news in liked_news:
+        if news.likes.filter(user_id=email).exists():
             liked[i] = True
+
+    # user = get_object_or_404(User, user_id=email)
+    # liked_news = user.likes.objects.all()
+    #
+    # for i, news in enumerate(news_data):
+    #     if news in liked_news:
+    #         liked[i] = True
 
     return liked
 
 
 def post_like(request):
-    # try:
-    #     email = str(request.user.email)
-    # except Exception as e:
-    #     return JsonResponse({"new_string": "Login Required", "flag": True})
-
-    email = "22limyihu@gmail.com"
+    try:
+        email = str(request.user.email)
+    except Exception as e:
+        return JsonResponse({"new_string": "Login Required", "flag": True})
 
     if request.method == 'GET':
         post_id = request.GET['post_id']
