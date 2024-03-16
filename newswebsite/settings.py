@@ -125,8 +125,9 @@ ASGI_APPLICATION = 'newswebsite.asgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
+# for remote MySQL database for production
+
 if PRODUCTION:
-    # for remote MySQL database for production
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',

@@ -1,7 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.decorators import login_required
 
 from datetime import datetime, timedelta
 
@@ -15,27 +14,20 @@ class LatestToday:
     will always contain content or if the database is empty, stop decrementing after 5.
     """
     def __init__(self):
-        news_data = News.objects.all()
+        latest = News.objects.latest('date')
 
-        # get all dates in datetime format
-        dates = [datetime.strptime(news.date.split()[0], '%Y-%m-%d') for news in news_data]
+        print(latest.title)
+        print(latest.date)
 
-        # get max date
-        if len(dates) == 0:
+        if latest.date is None:
             self.date = datetime.today()
         else:
-            self.date = max(dates)
+            self.date = latest.date
 
 
 def daily_paper_render(request, date, latest_today, category="none", categories=None):
-    news_data = News.objects.all()
-
-    for news in news_data:
-        news.date = news.date.split()[0]
-        news.citation_rank = round(float(news.citation_rank), 2)
-
-    news_data = [news for news in news_data if datetime.strptime(news.date, '%Y-%m-%d') == date]
-    news_data.sort(key=lambda x: -x.citation_rank)
+    news_data = News.objects.filter(date__range=[date.strftime('%Y-%m-%d'), date.strftime('%Y-%m-%d')])
+    news_data = news_data.order_by('-citation_rank')
 
     if category != "none":
 
@@ -86,7 +78,7 @@ def index(request):
 
 def specific_date(request, date):
     try:
-        date = datetime.strptime(date, '%Y-%m-%d')
+        date = datetime.strptime(date, '%Y-%m-%d').date()
     except Exception as e:
         return HttpResponse("")
 
@@ -95,7 +87,7 @@ def specific_date(request, date):
 
 def specific_category(request, date, category):
     try:
-        date = datetime.strptime(date, '%Y-%m-%d')
+        date = datetime.strptime(date, '%Y-%m-%d').date()
     except Exception as e:
         return HttpResponse("")
 

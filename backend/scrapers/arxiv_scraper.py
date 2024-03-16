@@ -136,7 +136,7 @@ def arxiv_scraper(query, max_results):
     for r in client.results(search):
         id = str(r.entry_id[-12:-8]) + str(r.entry_id[-7:-2])
         title = str(r.title)
-        published = str(r.published)
+        published = r.published.strftime('%Y-%m-%d')
         categories = str(r.categories)
         authors = [str(author) for author in r.authors]
         link = str(r.links[0])

@@ -24,6 +24,8 @@ def citation_ranker_semantic_scholar(data, url="https://www.semanticscholar.org/
             except Exception as e:
                 continue
 
+        citations = round(citations, 2)
+
         d['citation_rank'] = str(citations)
         d['final_rank'] = str(citations)
 

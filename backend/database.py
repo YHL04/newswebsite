@@ -13,22 +13,22 @@ def reinit_db(file="db.sqlite"):
     # set the news database as news.db
     con = sqlite3.connect(file)
     cur = con.cursor()
-    # cur.execute("DROP TABLE app_news_likes;")
-    # cur.execute("DROP TABLE app_news;")
-    # cur.execute("DROP TABLE app_user;")
+    cur.execute("DROP TABLE app_news_likes;")
+    cur.execute("DROP TABLE app_news;")
+    cur.execute("DROP TABLE app_user;")
 
     cur.execute(
         "CREATE TABLE app_news"
         "("
         "news_id varchar(255) NOT NULL,"
-        "title TEXT NOT NULL,"
-        "date TEXT NOT NULL,"
-        "authors TEXT NOT NULL,"
-        "categories TEXT NOT NULL,"
-        "link TEXT NOT NULL,"
-        "text TEXT NOT NULL,"
-        "citation_rank TEXT NOT NULL,"
-        "final_rank TEXT NOT NULL,"
+        "title varchar(255) NOT NULL,"
+        "date date NOT NULL,"
+        "authors text NOT NULL,"
+        "categories text NOT NULL,"
+        "link varchar(255) NOT NULL,"
+        "text text NOT NULL,"
+        "citation_rank float NOT NULL,"
+        "final_rank float NOT NULL,"
         "UNIQUE (news_id)"
         ")")
     cur.execute(
@@ -83,7 +83,7 @@ def get_from_db(file="db.sqlite"):
         {
          'id'           : d[0],
          'title'        : d[1],
-         'date'         : d[2][:10],  # only get year-month-day and exclude time
+         'date'         : d[2],
          'authors'      : str_rep_to_list(d[3]),
          'categories'   : str_rep_to_list(d[4]),
          'link'         : d[5],
