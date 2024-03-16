@@ -14,20 +14,31 @@ def citation_ranker_semantic_scholar(data, url="https://www.semanticscholar.org/
 
         authors = d["authors"]
 
-        # get total citations of authors (limit to first author due to scrape limitations)
-        citations = 0
-        for author in authors:  # [:1]:
+        # rank = ( summation( citation+(i == 0)*citation*2 ) / num_authors ) * num_authors**(1/3)
+        citations, final, num_authors = 0, 0, 0
+        for i, author in enumerate(authors):  # [:1]:
             try:
                 result = sch.search_author(author)[0]
-                citations += result['citationCount'] / result['paperCount']
+                citation = result['citationCount'] / result['paperCount']
+                citations += citation
+
+                # if first author, multiply by 3
+                final += citation + int(i == 0) * citation * 2
+                num_authors += 1
 
             except Exception as e:
                 continue
 
+        if num_authors == 0:
+            final = 1
+        else:
+            final = (final / num_authors) * (num_authors**(1/3))
+
         citations = round(citations, 2)
+        final = round(final, 2)
 
         d['citation_rank'] = str(citations)
-        d['final_rank'] = str(citations)
+        d['final_rank'] = str(final)
 
     return data
 
