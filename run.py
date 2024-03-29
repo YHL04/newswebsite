@@ -48,7 +48,7 @@ def rank(datas, new_datas):
 
 
 if __name__ == "__main__":
-    keywords = ["Artificial Intelligence", "Machine Learning", "Computer Vision"]
+    keywords = ["Artificial Intelligence", "Machine Learning"]
     categories = ["cs.AI", "cs.LG"]
 
     drop_old()
