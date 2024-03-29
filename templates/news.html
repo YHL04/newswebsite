@@ -24,7 +24,6 @@
 
 <ul class="nav navbar-nav">
     <li><a href="{% url 'index' %}">Main</a></li>
-    <li><a href="{% url 'memes' %}">Memes</a></li>
     <li><a href="{% url 'about' %}">About</a></li>
     {% if user.is_authenticated %}
     <li style="float:right"><a href="{% url 'account_logout' %}">Welcome, {{ user.username }}! Logout</a></li>

@@ -51,8 +51,8 @@ if __name__ == "__main__":
     keywords = ["Artificial Intelligence", "Machine Learning", "Computer Vision"]
     categories = ["cs.AI", "cs.LG"]
 
-    # drop_old()
-    # scrape(keywords, categories)
+    drop_old()
+    scrape(keywords, categories)
 
     # rank news from database
     datas = get_from_db()

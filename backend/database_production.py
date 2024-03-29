@@ -24,6 +24,8 @@ sshtunnel.TUNNEL_TIMEOUT = 5.0
 
 
 def str_rep_to_list(str):
+    if str == "":
+        return []
     """changes string '['A', 'B', 'C']' to list ['A', 'B', 'C']"""
     return ast.literal_eval(str)
 
