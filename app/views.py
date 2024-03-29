@@ -100,6 +100,12 @@ def specific_category(request, date, category):
     return daily_paper_render(request, date=date, latest_today=LatestToday().date, category=category, categories=categories)
 
 
+def memes(request):
+    template = loader.get_template("memes.html")
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+
 def about(request):
     template = loader.get_template("about.html")
     context = {}

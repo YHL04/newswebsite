@@ -6,6 +6,7 @@ urlpatterns = [
     path("", views.index, name="index"),
     path('accounts/', include('allauth.urls')),
     path('auth/', include('allauth.socialaccount.urls')),
+    path("memes/", views.memes, name="memes"),
     path("about/", views.about, name="about"),
     path("like/", views.post_like, name="post_like"),
     path("<str:date>/", views.specific_date, name="specific_date"),

@@ -4,7 +4,7 @@ from semanticscholar import SemanticScholar
 from scholarly import scholarly
 
 
-def citation_ranker_semantic_scholar(data, url="https://www.semanticscholar.org/"):
+def citation_ranker_semantic_scholar(data):
     sch = SemanticScholar()
 
     for i, d in enumerate(data):
@@ -16,9 +16,15 @@ def citation_ranker_semantic_scholar(data, url="https://www.semanticscholar.org/
 
         # rank = ( summation( citation+(i == 0)*citation*2 ) / (num_authors+2) ) * num_authors**(1/3)
         citations, final, num_authors = 0, 0, 0
-        for i, author in enumerate(authors):  # [:1]:
+        affiliations = []
+        for i, author in enumerate(authors):
             try:
                 result = sch.search_author(author)[0]
+
+                # get affiliations
+                affiliations += result['affiliations']
+
+                # get citations
                 citation = result['citationCount'] / result['paperCount']
                 citations += citation
 
@@ -37,6 +43,8 @@ def citation_ranker_semantic_scholar(data, url="https://www.semanticscholar.org/
         citations = round(citations, 2)
         final = round(final, 2)
 
+        print(affiliations)
+        d['affiliations'] = str(list(set(affiliations)))
         d['citation_rank'] = str(citations)
         d['final_rank'] = str(final)
 
@@ -78,3 +86,6 @@ def citation_ranker_google_scholar(data):
 
     return data
 
+
+if __name__ == "__main__":
+    citation_ranker_semantic_scholar()

@@ -17,6 +17,7 @@ class News(models.Model):
     categories = models.CharField(max_length=1_000_000, unique=False)
     link = models.CharField(max_length=1_000_000, unique=False)
     text = models.CharField(max_length=1_000_000, unique=False)
+    affiliations = models.CharField(max_length=1_000_000, unique=False)
     citation_rank = models.FloatField(max_length=1_000_000, unique=False)
     final_rank = models.FloatField(max_length=1_000_000, unique=False)
     likes = models.ManyToManyField(User, related_name='user_like', blank=True)

@@ -102,6 +102,7 @@ def arxiv_scraper_recent(c="cs.AI"):
             'authors'      : author,
             'link'         : link,
             'text'         : text,
+            'affiliations' : "",
             'citation_rank': -1,
             'final_rank'   : -1,
             'likes'        : 0,
@@ -143,6 +144,7 @@ def arxiv_scraper(query, max_results):
         text = str(r.summary)
 
         print(title)
+        print(link)
         print(published)
 
         news = {
@@ -153,6 +155,7 @@ def arxiv_scraper(query, max_results):
             'authors'      : authors,
             'link'         : link,
             'text'         : text,
+            'affiliations' : "",
             'citation_rank': -1,
             'final_rank'   : -1,
             'likes'        : 0,
@@ -165,8 +168,3 @@ def arxiv_scraper(query, max_results):
 
 if __name__ == "__main__":
     arxiv_scraper("Machine Learning", 2)
-
-    results = arxiv_scraper_recent()
-    print(results)
-    # arxiv_category_scraper()
-

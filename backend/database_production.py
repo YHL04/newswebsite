@@ -57,6 +57,7 @@ def reinit_db():
             "categories text NOT NULL,"
             "link varchar(255) NOT NULL,"
             "text text NOT NULL,"
+            "affiliations text NOT NULL,"
             "citation_rank float NOT NULL,"
             "final_rank float NOT NULL,"
             "UNIQUE (news_id)"
@@ -108,8 +109,9 @@ def get_from_db():
              'categories'   : str_rep_to_list(d[4]),
              'link'         : d[5],
              'text'         : d[6],
-             'citation_rank': d[7],
-             'final_rank'   : d[8],
+             'affiliations' : str_rep_to_list(d[7]),
+             'citation_rank': d[8],
+             'final_rank'   : d[9],
             }
             for d in data
         ]
@@ -133,12 +135,12 @@ def store_to_db(data):
             db=DBNAME,
         )
         data = [(str(d['id']), str(d["title"]), str(d["date"]), str(d["authors"]), str(d["categories"]),
-                 str(d["link"]), str(d["text"]), str(d["citation_rank"]), str(d["final_rank"]))
+                 str(d["link"]), str(d["text"]), str(d["affiliations"]), str(d["citation_rank"]), str(d["final_rank"]))
                 for d in data]
 
         cur = con.cursor()
         cur.executemany(
-            "INSERT IGNORE INTO app_news VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            "INSERT IGNORE INTO app_news VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
             data)
         con.commit()
         con.close()
