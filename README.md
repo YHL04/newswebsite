@@ -51,8 +51,9 @@ sota, results, sentiment analysis?
 - [X] create development and production mode
 - [X] create a database system with remote MySQL
 - [X] host website
-- [ ] create gmail login?
-- [ ] create like button? (requires login)
+- [X] create gmail login
+- [X] create like button (requires login)
+- [X] added affiliations to papers
 - [ ] create comment section? (requires login)
 - [ ] try to promote website
 
