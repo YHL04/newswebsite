@@ -2,6 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404
 
+import ast
 from datetime import datetime, timedelta
 
 from .models import News, User

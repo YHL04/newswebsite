@@ -43,10 +43,10 @@ def citation_ranker_semantic_scholar(data):
         citations = round(citations, 2)
         final = round(final, 2)
 
-        print(affiliations)
-        d['affiliations'] = str(list(set(affiliations)))
+        d['affiliations'] = ', '.join(list(set(affiliations)))
         d['citation_rank'] = str(citations)
         d['final_rank'] = str(final)
+        print(d['affiliations'])
 
     return data
 

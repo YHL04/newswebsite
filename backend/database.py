@@ -48,6 +48,15 @@ def reinit_db(file="db.sqlite"):
         " unique (news_id, user_id)"
         ")"
     )
+    cur.execute(
+        "CREATE TABLE affiliations_table"
+        "("
+        "affiliations varchar(255) NOT NULL,"
+        "weight float NOT NULL,"
+        "count float NOT NULL,"
+        "unique (affiliations)"
+        ")"
+    )
     con.commit()
     con.close()
 

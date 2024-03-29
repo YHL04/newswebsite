@@ -55,6 +55,13 @@ html * {
     background-color: hsl(218, 28%, 13%);
 }
 
+.grid-affiliations {
+    color: grey;
+    font-size: 1em;
+    max-width: 400px;
+    background-color: hsl(218, 28%, 13%);
+}
+
 .grid-set-color {
     background-color: hsl(218, 28%, 13%);
 }
