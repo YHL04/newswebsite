@@ -1,0 +1,80 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'button.css' %}">
+<link rel="stylesheet" href="{% static 'coffee.css' %}">
+<link rel="stylesheet" href="{% static 'form.css' %}">
+<link rel="stylesheet" href="{% static 'like.css' %}">
+<link rel="stylesheet" href="{% static 'navbar.css' %}">
+<link rel="stylesheet" href="{% static 'category.css' %}">
+
+<html>
+
+<ul>
+    <li><a href="{% url 'index' %}">Main</a></li>
+    <li><a href="{% url 'search' %}">Search</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+
+</ul>
+
+<head>
+    <title>Search Papers</title>
+</head>
+
+<h1>Search Papers</h1>
+
+<!--<form action="">-->
+<!--    <input type="text" name="search" placeholder="Search by title" value="{{request.GET.title}}">-->
+<!--    <input type="submit" value="Search">-->
+<!--</form>-->
+
+<div class="form-container">
+<form method="POST">{% csrf_token %}
+
+    <div class="row">
+        <div><textarea name="search-bar" placeholder="Search"></textarea></div>
+    </div>
+
+    <div class="row">
+        <input class="button-17" type="submit">
+    </div>
+
+</form>
+</div>
+
+<div class="grid-container">
+    {% for news, liked in news_data %}
+    <div class="grid-item">
+        <h2 class="grid-set-color">{{ news.title }}</h2>
+
+        <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
+
+            <div class="grid-info">
+                {% if liked %}
+                <button  class="like-button active" id="{{ news.news_id }}" data-url="{% url 'post_like' %}">
+                    <p class="like-button-text active" id="text{{ news.news_id }}">Likes: {{ news.total_likes }}</p>
+                </button>
+                {% else %}
+                <button  class="like-button" id="{{ news.news_id }}" data-url="{% url 'post_like' %}">
+                    <p class="like-button-text" id="text{{ news.news_id }}">Likes: {{ news.total_likes }}</p>
+                </button>
+                {% endif %}
+            </div>
+
+        <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">Relevance {{ news.citation_rank }}</b></p></div>
+
+        {% if news.affiliations != "" %}
+        <p class="grid-set-color"><b class="grid-info-text">{{ news.affiliations }}</b></p>
+        {% else %}
+        {% endif %}
+        <p class="grid-paragraphs">{{ news.text }}</p>
+        <button class="button-17" onclick="window.open('{{ news.link }}','_blank')">
+                arXiv
+        </button>
+    </div>
+    {% endfor %}
+</div>
+
+</html>

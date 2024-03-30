@@ -107,6 +107,19 @@ def memes(request):
     return HttpResponse(template.render(context, request))
 
 
+def search(request):
+    news_data = []
+    if request.POST.get('search-bar') is not None:
+        news_data = News.objects.filter(title__icontains=request.POST.get('search-bar').replace("\n", "").replace("\r", ""))
+        news_data = news_data.order_by('-citation_rank')
+
+    template = loader.get_template("search.html")
+    context = {
+        "news_data": zip(news_data, check_liked(request, news_data)),
+    }
+    return HttpResponse(template.render(context, request))
+
+
 def about(request):
     template = loader.get_template("about.html")
     context = {}
