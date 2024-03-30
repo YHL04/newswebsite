@@ -121,12 +121,13 @@ def get_from_db():
              'categories'   : str_rep_to_list(d[4]),
              'link'         : d[5],
              'text'         : d[6],
-             'affiliations' : str_rep_to_list(d[7]),
+             'affiliations' : d[7],
              'citation_rank': d[8],
              'final_rank'   : d[9],
             }
             for d in data
         ]
+
         con.close()
 
     return data

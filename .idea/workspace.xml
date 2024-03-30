@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database_production.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database_production.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scholar.log" beforeDir="false" afterPath="$PROJECT_DIR$/scholar.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +84,7 @@
       <recent name="C:\Users\ctlim\PycharmProjects\newswebsite2\newswebsite\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.showdb">
+  <component name="RunManager" selected="Python.debug">
     <configuration name="arxiv_scraper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="newswebsite" />
       <option name="ENV_FILES" value="" />
@@ -200,10 +198,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.run (1)" />
+        <item itemvalue="Python.debug" />
         <item itemvalue="Python.showdb" />
         <item itemvalue="Python.database_production" />
         <item itemvalue="Python.arxiv_scraper" />
-        <item itemvalue="Python.debug" />
       </list>
     </recent_temporary>
   </component>
@@ -222,14 +220,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709140123262</updated>
-    </task>
-    <task id="LOCAL-00086" summary="fix bug">
-      <option name="closed" value="true" />
-      <created>1710006167773</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1710006167773</updated>
     </task>
     <task id="LOCAL-00087" summary="fix bug">
       <option name="closed" value="true" />
@@ -615,7 +605,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711741612149</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="add">
+      <option name="closed" value="true" />
+      <created>1711743561452</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1711743561452</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
