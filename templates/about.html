@@ -24,6 +24,12 @@
     <li><a href="{% url 'index' %}">Main</a></li>
     <li><a href="{% url 'search' %}">Search</a></li>
     <li><a href="{% url 'about' %}">About</a></li>
+
+    {% if user.is_authenticated %}
+    <li style="float:right"><a href="{% url 'account_logout' %}">Welcome, {{ user.username }}! Logout</a></li>
+    {% else %}
+    <li style="float:right"><a href="{% provider_login_url 'google' %}">Login</a></li>
+    {% endif %}
 </ul>
 
 <head>

@@ -17,6 +17,11 @@
     <li><a href="{% url 'search' %}">Search</a></li>
     <li><a href="{% url 'about' %}">About</a></li>
 
+    {% if user.is_authenticated %}
+    <li style="float:right"><a href="{% url 'account_logout' %}">Welcome, {{ user.username }}! Logout</a></li>
+    {% else %}
+    <li style="float:right"><a href="{% provider_login_url 'google' %}">Login</a></li>
+    {% endif %}
 </ul>
 
 <head>
@@ -76,5 +81,36 @@
     </div>
     {% endfor %}
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $('.like-button').click(function(){
+    var catid;
+    catid = $(this).attr("id");
+    $.ajax(
+    {
+        type: "GET",
+        url: $(this).attr("data-url"),
+        data:{
+                 "post_id": catid,
+                 "csrfmiddlewaretoken": "{{ csrf_token }}",
+                 "action": "get"
+        },
+        success: function(data)
+        {
+            $('#text' + catid ).text(data['new_string']);
+            if (data['flag']) {
+                $('#' + catid).addClass('active');
+                $('#text' + catid).addClass('active');
+
+            } else {
+                $('#' + catid).removeClass('active');
+                $('#text' + catid).removeClass('active');
+
+            }
+        }
+     })
+});
+</script>
 
 </html>
