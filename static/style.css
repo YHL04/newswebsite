@@ -83,6 +83,13 @@ html * {
     }
 }
 
+@media handheld {
+    .calendar-row {
+        height: 100px;
+        width: 100%;
+    }
+}
+
 .calendar {
     margin: 10px;
     height: 60px;
