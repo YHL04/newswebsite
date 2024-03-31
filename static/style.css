@@ -76,6 +76,8 @@ html * {
     width: 100%;
 }
 
+/* https://stackoverflow.com/questions/3893342/do-iphone-android-browsers-support-css-media-handheld */
+
 @media only screen and (max-width: 768px) {
     .calendar-row {
         height: 100px;
@@ -84,6 +86,27 @@ html * {
 }
 
 @media handheld {
+    .calendar-row {
+        height: 100px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    .calendar-row {
+        height: 100px;
+        width: 100%;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .calendar-row {
+        height: 100px;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-resolution: 300dpi) {
     .calendar-row {
         height: 100px;
         width: 100%;

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="added search page">
+    <list default="true" id="e5ef297a-8f03-4647-8ba5-005a09533a69" name="Changes" comment="added phone adjustments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
     </list>
@@ -219,14 +219,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709140123262</updated>
-    </task>
-    <task id="LOCAL-00091" summary="fix bug">
-      <option name="closed" value="true" />
-      <created>1710009647074</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1710009647074</updated>
     </task>
     <task id="LOCAL-00092" summary="fix bug">
       <option name="closed" value="true" />
@@ -612,7 +604,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711841462974</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="added phone adjustments">
+      <option name="closed" value="true" />
+      <created>1711843962063</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1711843962063</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -627,7 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add staticfiles" />
     <MESSAGE value="preparing to host" />
     <MESSAGE value="change ui" />
     <MESSAGE value="remote sql database" />
@@ -652,6 +651,7 @@
     <MESSAGE value="add" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="added search page" />
-    <option name="LAST_COMMIT_MESSAGE" value="added search page" />
+    <MESSAGE value="added phone adjustments" />
+    <option name="LAST_COMMIT_MESSAGE" value="added phone adjustments" />
   </component>
 </project>
