@@ -74,6 +74,13 @@ def daily_paper_render(request, date, latest_today, category="none", categories=
 
 
 def index(request):
+    try:
+        email = str(request.user.email)
+        user = User(user_id=email)
+        user.save()
+    except Exception as e:
+        pass
+
     return daily_paper_render(request, date=LatestToday().date, latest_today=LatestToday().date)
 
 
