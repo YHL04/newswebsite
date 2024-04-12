@@ -1,0 +1,49 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'button.css' %}">
+<link rel="stylesheet" href="{% static 'coffee.css' %}">
+<link rel="stylesheet" href="{% static 'form.css' %}">
+<link rel="stylesheet" href="{% static 'like.css' %}">
+<link rel="stylesheet" href="{% static 'navbar.css' %}">
+<link rel="stylesheet" href="{% static 'category.css' %}">
+
+
+<html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGQFWLK7X0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SGQFWLK7X0');
+</script>
+
+<ul>
+    <li><a href="{% url 'index' %}">Main</a></li>
+    <li><a href="{% url 'search' %}">Search</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+
+    {% if user.is_authenticated %}
+    <li style="float:right"><a href="{% url 'account_logout' %}">Welcome, {{ user.username }}! Logout</a></li>
+    {% else %}
+    <li style="float:right"><a href="{% provider_login_url 'google' %}">Login</a></li>
+    {% endif %}
+</ul>
+
+<head>
+    <title>Comments</title>
+</head>
+
+<body>
+
+<h1>Comment Page</h1>
+
+
+
+</body>
+
+</html>
