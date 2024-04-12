@@ -184,6 +184,38 @@ def delete_from_db(data):
         con.close()
 
 
+def get_users():
+    with sshtunnel.SSHTunnelForwarder(
+        SSHHOST,
+        ssh_username=USERNAME,
+        ssh_password=PASSWORD,
+        remote_bind_address=SQLADDRESS
+    ) as tunnel:
+        con = MySQLdb.connect(
+            user=USERNAME,
+            passwd=SQLPASSWORD,
+            host=LOCALHOST,
+            port=tunnel.local_bind_port,
+            db=DBNAME,
+        )
+        cur = con.cursor()
+        cur.execute("SELECT * FROM app_user")
+        data = cur.fetchall()
+
+        print(data)
+
+        data = [
+            {
+             'email'           : d[0],
+            }
+            for d in data
+        ]
+
+        con.close()
+
+    return data
+
+
 if __name__ == "__main__":
     reinit_db()
 
