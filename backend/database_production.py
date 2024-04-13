@@ -202,11 +202,9 @@ def get_users():
         cur.execute("SELECT * FROM app_user")
         data = cur.fetchall()
 
-        print(data)
-
         data = [
             {
-             'email'           : d[0],
+             'email': d[0],
             }
             for d in data
         ]

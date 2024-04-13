@@ -80,17 +80,6 @@ html * {
     }
 }
 
-@supports not (-webkit-touch-callout: none) {
-    /* CSS for other than iOS devices */
-    .grid-container {
-        position: relative;
-        display: grid;
-        grid-template-columns: auto;
-        padding: 20px;
-        align: center;
-    }
-}
-
 .grid-item {
     padding: 20px;
     text-align: center;
