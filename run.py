@@ -51,8 +51,11 @@ if __name__ == "__main__":
     keywords = ["Artificial Intelligence", "Machine Learning"]
     categories = ["cs.AI", "cs.LG"]
 
-    drop_old()
-    scrape(keywords, categories)
+    try:
+        drop_old()
+        scrape(keywords, categories)
+    except Exception as e:
+        print(e)
 
     # rank news from database
     datas = get_from_db()
@@ -66,7 +69,7 @@ if __name__ == "__main__":
             delete_from_db(new_data)
             store_to_db(new_data)
         except Exception as e:
-            pass
+            print(e)
 
     # i = 0
     # while i < len(datas):
