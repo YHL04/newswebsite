@@ -46,6 +46,8 @@ def reinit_db():
         )
         cur = con.cursor()
         cur.execute("DROP TABLE app_news_likes;")
+        cur.execute("DROP TABLE app_user_likes;")
+        cur.execute("DROP TABLE affiliations_table;")
         cur.execute("DROP TABLE app_news;")
         cur.execute("DROP TABLE app_user;")
 
@@ -62,7 +64,7 @@ def reinit_db():
             "affiliations text NOT NULL,"
             "citation_rank float NOT NULL,"
             "final_rank float NOT NULL,"
-            "likes int NOT NULL,"
+            "like_count int NOT NULL,"
             "UNIQUE (news_id)"
             ")")
         cur.execute(

@@ -22,6 +22,7 @@ class News(models.Model):
     citation_rank = models.FloatField(max_length=1_000_000, unique=False)
     final_rank = models.FloatField(max_length=1_000_000, unique=False)
     likes = models.ManyToManyField('User', related_name='news_like', blank=True)
+    like_count = models.IntegerField(max_length=1_000_000, unique=False)
 
     @property
     def total_likes(self):

@@ -194,7 +194,7 @@ def post_like(request):
             post_obj_users.likes.remove(news)
             post_obj_users.save()
 
-            news.likes = news.likes - 1
+            news.like_count = news.like_count - 1
             news.save()
 
             flag = False
@@ -205,7 +205,7 @@ def post_like(request):
             post_obj_users.likes.add(news)
             post_obj_users.save()
 
-            news.likes = news.likes + 1
+            news.like_count = news.like_count + 1
             news.save()
 
             flag = True
