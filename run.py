@@ -11,7 +11,7 @@ def drop_old():
 
     drops = []
     for data in datas:
-        if data['date'] < (datetime.today() - timedelta(days=7)).date():
+        if data['date'] < (datetime.today() - timedelta(days=7)).date() and data['likes'] <= 0:
             drops.append(data)
         # elif 0 <= float(data['final_rank']) < 5:
         #     drops.append(data)

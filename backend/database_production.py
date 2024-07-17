@@ -62,6 +62,7 @@ def reinit_db():
             "affiliations text NOT NULL,"
             "citation_rank float NOT NULL,"
             "final_rank float NOT NULL,"
+            "likes int NOT NULL,"
             "UNIQUE (news_id)"
             ")")
         cur.execute(
