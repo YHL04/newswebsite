@@ -3,6 +3,7 @@ from django.db import models
 
 class User(models.Model):
     user_id = models.CharField(max_length=1_000_000, unique=True, primary_key=True)
+    likes = models.ManyToManyField('News', related_name='user_like', blank=True)
 
     class Meta:
         managed = False
@@ -20,7 +21,7 @@ class News(models.Model):
     affiliations = models.CharField(max_length=1_000_000, unique=False)
     citation_rank = models.FloatField(max_length=1_000_000, unique=False)
     final_rank = models.FloatField(max_length=1_000_000, unique=False)
-    likes = models.ManyToManyField(User, related_name='user_like', blank=True)
+    likes = models.ManyToManyField('User', related_name='news_like', blank=True)
 
     @property
     def total_likes(self):
@@ -29,7 +30,6 @@ class News(models.Model):
     class Meta:
        managed = False
        db_table = 'app_news'
-
 
 """
 date_joined

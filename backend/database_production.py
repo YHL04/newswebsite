@@ -82,6 +82,16 @@ def reinit_db():
             ")"
         )
         cur.execute(
+            "CREATE TABLE app_user_likes"
+            "("
+            "news_id varchar(255) NOT NULL,"
+            "user_id varchar(255) NOT NULL,"
+            "FOREIGN KEY (news_id) REFERENCES app_news(news_id) ON DELETE CASCADE,"
+            "FOREIGN KEY (user_id) REFERENCES app_user(user_id) ON DELETE CASCADE,"
+            "unique (news_id, user_id)"
+            ")"
+        )
+        cur.execute(
             "CREATE TABLE affiliations_table"
             "("
             "affiliations varchar(255) NOT NULL,"

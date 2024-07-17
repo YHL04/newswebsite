@@ -115,10 +115,12 @@ def memes(request):
 
 
 def liked(request):
-    email = str(request.user.email)
-    user = User(user_id=email)
-    user.save()
-    news_data = user.news.objects.all()
+    try:
+        email = str(request.user.email)
+        user = User(user_id=email)
+        news_data = user.likes.all()
+    except Exception as e:
+        news_data = []
 
     template = loader.get_template("liked.html")
     context = {
@@ -177,22 +179,30 @@ def post_like(request):
 
     if request.method == 'GET':
         post_id = request.GET['post_id']
-        post_obj = get_object_or_404(News, news_id=post_id)
+        post_obj_news = get_object_or_404(News, news_id=post_id)
+        post_obj_users = get_object_or_404(User, user_id=email)
 
-        if post_obj.likes.filter(user_id=email).exists():
-            user = User(user_id=email)
-            user.save()
-            post_obj.likes.remove(user)
-            post_obj.save()
+        user = User(user_id=email)
+        news = News(news_id=post_id)
+        user.save()
+
+        if post_obj_news.likes.filter(user_id=email).exists():
+            post_obj_news.likes.remove(user)
+            post_obj_news.save()
+
+            post_obj_users.likes.remove(news)
+            post_obj_users.save()
+
             flag = False
         else:
-            user = User(user_id=email)
-            user.save()
-            post_obj.likes.add(user)
-            post_obj.save()
+            post_obj_news.likes.remove(user)
+            post_obj_news.save()
+
+            post_obj_users.likes.remove(news)
+            post_obj_users.save()
             flag = True
 
-        new_string = "Likes: {}".format(post_obj.total_likes)
+        new_string = "Likes: {}".format(post_obj_news.total_likes)
         return JsonResponse({"new_string": new_string, "flag": flag})
 
     return HttpResponse("Error")

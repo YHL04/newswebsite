@@ -3,7 +3,7 @@
 from backend import reinit_db, get_from_db, get_users
 
 
-# reinit_db()
+reinit_db()
 
 
 # datas = get_from_db()
@@ -17,8 +17,8 @@ from backend import reinit_db, get_from_db, get_users
 
 
 # datas = get_from_db()
-users = get_users()
-print(users)
+# users = get_users()
+# print(users)
 
 
 # for data in datas:
