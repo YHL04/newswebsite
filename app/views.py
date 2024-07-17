@@ -195,10 +195,10 @@ def post_like(request):
 
             flag = False
         else:
-            post_obj_news.likes.remove(user)
+            post_obj_news.likes.add(user)
             post_obj_news.save()
 
-            post_obj_users.likes.remove(news)
+            post_obj_users.likes.add(news)
             post_obj_users.save()
             flag = True
 
