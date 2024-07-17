@@ -175,6 +175,9 @@ def post_like(request):
     try:
         email = str(request.user.email)
     except Exception as e:
+        news = News(news_id=request.GET['post_id'])
+        print(news.like_count)
+
         return JsonResponse({"new_string": "Login Required", "flag": True})
 
     if request.method == 'GET':
@@ -194,6 +197,7 @@ def post_like(request):
             post_obj_users.likes.remove(news)
             post_obj_users.save()
 
+            if news.like_count is None: news.like_count = 0
             news.like_count = int(news.like_count) - 1
             news.save()
 
@@ -205,6 +209,7 @@ def post_like(request):
             post_obj_users.likes.add(news)
             post_obj_users.save()
 
+            if news.like_count is None: news.like_count = 0
             news.like_count = int(news.like_count) + 1
             news.save()
 
