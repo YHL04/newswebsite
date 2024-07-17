@@ -184,21 +184,28 @@ def post_like(request):
 
         user = User(user_id=email)
         news = News(news_id=post_id)
-        user.save()
-        news.save()
 
         if post_obj_news.likes.filter(user_id=email).exists():
+            if news.like_count is None: news.like_count = 0
+            news.like_count = str(int(news.like_count) - 1)
+
+            user.save()
+            news.save()
+
             post_obj_news.likes.remove(user)
             post_obj_news.save()
 
             post_obj_users.likes.remove(news)
             post_obj_users.save()
 
-            # if news.like_count is None: news.like_count = 0
-            # news.like_count = str(int(news.like_count) - 1)
-
             flag = False
         else:
+            if news.like_count is None: news.like_count = 0
+            news.like_count = str(int(news.like_count) - 1)
+
+            user.save()
+            news.save()
+
             post_obj_news.likes.add(user)
             post_obj_news.save()
 
