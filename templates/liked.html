@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="{% static 'navbar.css' %}">
 <link rel="stylesheet" href="{% static 'category.css' %}">
 
-
 <html>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGQFWLK7X0"></script>
@@ -21,6 +20,7 @@
 
   gtag('config', 'G-SGQFWLK7X0');
 </script>
+
 
 <ul>
     <li><a href="{% url 'index' %}">Main</a></li>
@@ -36,78 +36,14 @@
 </ul>
 
 <head>
-    <title>AI Papers</title>
+    <title>Liked Papers</title>
 </head>
 
 <body>
 
-<h1>Daily AI Papers</h1>
-<p>Discover the most recent AI papers ranked by algorithm. <b>:)</b></p>
+<h1>Liked Papers</h1>
 
-<div class="extra-row">
-</div>
-
-<div class="calendar-row">
-    {% if next %}
-        {% if category == "none" %}
-        <button class="arrow-right" onclick="location.href='/{{ next_date }}/'"></button>
-        {% else %}
-        <button class="arrow-right" onclick="location.href='/{{ next_date }}/{{ category }}/'"></button>
-        {% endif %}
-
-    {% else %}
-        {% if category == "none" %}
-        <button class="arrow-empty" onclick="location.href='/{{ curr_date }}/'"></button>
-        {% else %}
-        <button class="arrow-empty" onclick="location.href='/{{ curr_date }}/{{ category }}/'"></button>
-        {% endif %}
-
-    {% endif %}
-    <div class="calendar">
-        <p class="calendar-month">{{ month }}</p>
-        <p class="calendar-day">{{ day }}</p>
-    </div>
-
-    {% if category == "none" %}
-    <button class="arrow-left" onclick="location.href='/{{ prev_date }}/'"></button>
-    {% else %}
-    <button class="arrow-left" onclick="location.href='/{{ prev_date }}/{{ category }}/'"></button>
-    {% endif %}
-
-    <div class="category-group">
-    {% if category == "none" %}
-    <button class="category-selected" onclick="location.href='/{{ curr_date }}'"><b class="category-text-selected">All</b></button>
-    {% else %}
-    <button class="category" onclick="location.href='/{{ curr_date }}'"><b class="category-text">All</b></button>
-    {% endif %}
-
-    {% if category == "transformer" %}
-    <button class="category-selected" onclick="location.href='/{{ curr_date }}/transformer'"><b class="category-text-selected">Transformer</b></button>
-    {% else %}
-    <button class="category" onclick="location.href='/{{ curr_date }}/transformer'"><b class="category-text">Transformer</b></button>
-    {% endif %}
-
-    {% if category == "diffusion" %}
-    <button class="category-selected" onclick="location.href='/{{ curr_date }}/diffusion'"><b class="category-text-selected">Diffusion</b></button>
-    {% else %}
-    <button class="category" onclick="location.href='/{{ curr_date }}/diffusion'"><b class="category-text">Diffusion</b></button>
-    {% endif %}
-
-    {% if category == "reinforcement" %}
-    <button class="category-selected" onclick="location.href='/{{ curr_date }}/reinforcement'"><b class="category-text-selected">Reinforcement Learning</b></button>
-    {% else %}
-    <button class="category" onclick="location.href='/{{ curr_date }}/reinforcement'"><b class="category-text">Reinforcement Learning</b></button>
-    {% endif %}
-
-    {% if category == "other" %}
-    <button class="category-selected" onclick="location.href='/{{ curr_date }}/other'"><b class="category-text-selected">Other</b></button>
-    {% else %}
-    <button class="category" onclick="location.href='/{{ curr_date }}/other'"><b class="category-text">Other</b></button>
-    {% endif %}
-    </div>
-
-</div>
-
+{% if user.is_authenticated %}
 <div class="grid-container">
     {% for news, liked in news_data %}
     <div class="grid-item">
@@ -140,6 +76,9 @@
     </div>
     {% endfor %}
 </div>
+{% else %}
+<p>Login to keep track of your to-read papers</p>
+{% endif %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript">

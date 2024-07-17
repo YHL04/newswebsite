@@ -114,6 +114,23 @@ def memes(request):
     return HttpResponse(template.render(context, request))
 
 
+def liked(request):
+    try:
+        email = str(request.user.email)
+        user = User(user_id=email)
+        user.save()
+        news_data = user.likes.all()
+
+    except Exception as e:
+        news_data = []
+
+    template = loader.get_template("liked.html")
+    context = {
+        "news_data": zip(news_data, check_liked(request, news_data)),
+    }
+    return HttpResponse(template.render(context, request))
+
+
 def search(request):
     news_data = []
     if request.POST.get('search-bar') is not None:
