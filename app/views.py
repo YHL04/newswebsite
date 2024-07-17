@@ -185,6 +185,7 @@ def post_like(request):
         user = User(user_id=email)
         news = News(news_id=post_id)
         user.save()
+        news.save()
 
         if post_obj_news.likes.filter(user_id=email).exists():
             post_obj_news.likes.remove(user)
@@ -200,6 +201,7 @@ def post_like(request):
 
             post_obj_users.likes.add(news)
             post_obj_users.save()
+
             flag = True
 
         new_string = "Likes: {}".format(post_obj_news.total_likes)
