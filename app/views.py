@@ -175,9 +175,6 @@ def post_like(request):
     try:
         email = str(request.user.email)
     except Exception as e:
-        news = News(news_id=request.GET['post_id'])
-        print(news.like_count)
-
         return JsonResponse({"new_string": "Login Required", "flag": True})
 
     if request.method == 'GET':
