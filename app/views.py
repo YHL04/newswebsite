@@ -118,7 +118,7 @@ def liked(request):
     email = str(request.user.email)
     user = User(user_id=email)
     user.save()
-    news_data = user.likes.objects.all()
+    news_data = user.news.objects.all()
 
     template = loader.get_template("liked.html")
     context = {
