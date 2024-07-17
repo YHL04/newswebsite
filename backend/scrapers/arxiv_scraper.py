@@ -106,6 +106,7 @@ def arxiv_scraper_recent(c="cs.AI"):
             'citation_rank': -1,
             'final_rank'   : -1,
             'likes'        : 0,
+            'like_count'   : 0,
         }
         results.append(news)
 
@@ -159,6 +160,7 @@ def arxiv_scraper(query, max_results):
             'citation_rank': -1,
             'final_rank'   : -1,
             'likes'        : 0,
+            'like_count'   : 0,
         }
 
         results.append(news)
