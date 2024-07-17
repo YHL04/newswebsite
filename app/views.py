@@ -201,7 +201,7 @@ def post_like(request):
             flag = False
         else:
             if news.like_count is None: news.like_count = 0
-            news.like_count = str(int(news.like_count) - 1)
+            news.like_count = str(int(news.like_count) + 1)
 
             user.save()
             news.save()
