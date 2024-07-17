@@ -184,8 +184,6 @@ def post_like(request):
 
         user = User(user_id=email)
         news = News(news_id=post_id)
-        user.save()
-        news.save()
 
         if post_obj_news.likes.filter(user_id=email).exists():
             post_obj_news.likes.remove(user)
@@ -196,7 +194,6 @@ def post_like(request):
 
             if news.like_count is None: news.like_count = 0
             news.like_count = int(news.like_count) - 1
-            news.save(['like_count'])
 
             flag = False
         else:
@@ -208,9 +205,11 @@ def post_like(request):
 
             if news.like_count is None: news.like_count = 0
             news.like_count = int(news.like_count) + 1
-            news.save(['like_count'])
 
             flag = True
+
+        user.save()
+        news.save()
 
         new_string = "Likes: {}".format(post_obj_news.total_likes)
         return JsonResponse({"new_string": new_string, "flag": flag})
