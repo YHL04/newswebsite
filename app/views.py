@@ -119,7 +119,7 @@ def liked(request):
         email = str(request.user.email)
         user = User(user_id=email)
         user.save()
-        news_data = user.likes.all()
+        news_data = user.likes.objects.all()
 
     except Exception as e:
         news_data = []
