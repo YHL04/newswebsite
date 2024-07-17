@@ -193,7 +193,7 @@ def post_like(request):
             post_obj_users.save()
 
             if news.like_count is None: news.like_count = 0
-            news.like_count = int(news.like_count) - 1
+            news.like_count = str(int(news.like_count) - 1)
 
             flag = False
         else:
@@ -204,7 +204,7 @@ def post_like(request):
             post_obj_users.save()
 
             if news.like_count is None: news.like_count = 0
-            news.like_count = int(news.like_count) + 1
+            news.like_count = str(int(news.like_count) + 1)
 
             flag = True
 
