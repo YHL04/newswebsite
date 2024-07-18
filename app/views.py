@@ -148,7 +148,10 @@ def arxiv(request):
         # TODO: replace with arxiv scraper.
         # news_data = News.objects.filter(title__icontains=request.POST.get('search-bar').replace("\n", "").replace("\r", ""))
         # news_data = news_data.order_by('-citation_rank')
-        news_data = arxiv_scraper(request.POST.get('search-bar').replace("\n", "").replace("\r", ""), max_results=10)
+        news_data_ = arxiv_scraper(request.POST.get('search-bar').replace("\n", "").replace("\r", ""), max_results=10)
+        news_data = []
+        for news in news_data_:
+            news_data.append(News(news_id=news['id']))
 
     template = loader.get_template("arxiv.html")
     context = {
