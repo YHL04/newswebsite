@@ -34,9 +34,10 @@ html * {
     text-align: center;
 }
 
-.grid-item {
+.grid-item-liked {
     padding: 40px;
     text-align: center;
+    height: 4em;
 }
 
 .grid-info {
