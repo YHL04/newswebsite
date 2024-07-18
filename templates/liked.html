@@ -46,7 +46,7 @@
 {% if user.is_authenticated %}
 <div class="grid-container-liked">
     {% for news, liked in news_data %}
-    <div class="grid-item">
+    <div class="grid-title">
         <div class="grid-info"><h2>{{ news.title }}</h2></div>
     </div>
     <div class="grid-item">
