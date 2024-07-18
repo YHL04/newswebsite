@@ -36,8 +36,8 @@ html * {
 
 .grid-item-liked {
     padding: 40px;
-    text-align: center;
     height: 4em;
+    grid-template-columns: auto auto auto;
 }
 
 .grid-info {
@@ -51,7 +51,6 @@ html * {
     float: left;
     width: 33%;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .grid-info-text {
