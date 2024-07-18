@@ -39,6 +39,7 @@ html * {
 .grid-info {
     float: left;
     width: 33%;
+    height: 100%;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -46,6 +47,7 @@ html * {
 .grid-info-50 {
     float: left;
     width: 50%;
+    height: 100%;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -53,6 +55,7 @@ html * {
 .grid-info-25 {
     float: left;
     width: 25%;
+    height: 100%;
     margin-bottom: 20px;
     text-align: center;
 }
