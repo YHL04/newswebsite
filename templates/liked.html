@@ -50,19 +50,17 @@
         <div class="box box1"><h2>{{ news.title }}</h2></div>
         <div class="box box2"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
 <!--        <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">Relevance {{ news.citation_rank }}</b></p></div>-->
-
-            <div class="box box3">
-                {% if liked %}
-                <button  class="like-button active" id="{{ news.news_id }}" data-url="{% url 'post_like' %}">
-                    <p class="like-button-text active" id="text{{ news.news_id }}">Likes: {{ news.total_likes }}</p>
-                </button>
-                {% else %}
-                <button  class="like-button" id="{{ news.news_id }}" data-url="{% url 'post_like' %}">
-                    <p class="like-button-text" id="text{{ news.news_id }}">Likes: {{ news.total_likes }}</p>
-                </button>
-                {% endif %}
-            </div>
-
+        <div class="box box3">
+            {% if liked %}
+            <button  class="like-button active" id="{{ news.news_id }}" data-url="{% url 'post_like' %}">
+                <p class="like-button-text active" id="text{{ news.news_id }}">Likes: {{ news.total_likes }}</p>
+            </button>
+            {% else %}
+            <button  class="like-button" id="{{ news.news_id }}" data-url="{% url 'post_like' %}">
+                <p class="like-button-text" id="text{{ news.news_id }}">Likes: {{ news.total_likes }}</p>
+            </button>
+            {% endif %}
+        </div>
 <!--        {% if news.affiliations != "" %}-->
 <!--        <div class="grid-info-liked">-->
 <!--            <p class="grid-set-color"><b class="grid-info-text">{{ news.affiliations }}</b></p>-->
