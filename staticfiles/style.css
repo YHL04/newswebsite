@@ -34,6 +34,11 @@ html * {
     text-align: center;
 }
 
+.grid-item {
+    padding: 40px;
+    text-align: center;
+}
+
 .grid-info {
     float: left;
     width: 33%;
@@ -43,7 +48,7 @@ html * {
 
 .grid-info-liked {
     float: left;
-    width: 25%;
+    width: 33%;
     margin-bottom: 20px;
     text-align: center;
 }
