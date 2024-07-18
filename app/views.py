@@ -145,13 +145,17 @@ def search(request):
 def arxiv(request):
     news_data = []
     if request.POST.get('search-bar') is not None:
-        # TODO: replace with arxiv scraper.
-        # news_data = News.objects.filter(title__icontains=request.POST.get('search-bar').replace("\n", "").replace("\r", ""))
-        # news_data = news_data.order_by('-citation_rank')
         news_data_ = arxiv_scraper(request.POST.get('search-bar').replace("\n", "").replace("\r", ""), max_results=10)
         news_data = []
-        for news in news_data_:
-            news_data.append(News(news_id=news['id']))
+        for news_ in news_data_:
+            news = News(news_id=str(news_['id']), title=str(news_['title']),
+                        date=str(news_['date']), authors=str(news_['authors']),
+                        categories=str(news_['categories']), link=str(news_['link']),
+                        text=str(news_['text']), affiliations=str(news_['affiliations']),
+                        citation_rank=str(news_['citation_rank']), final_rank=str(news_['final_rank']),
+                        like_count=str(news_['like_count']))
+            news.save()
+            news_data.append(news)
 
     template = loader.get_template("arxiv.html")
     context = {
