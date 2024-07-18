@@ -37,6 +37,7 @@ html * {
 .grid-item-liked {
     padding: 40px;
     height: 4em;
+    display: grid;
     grid-template-columns: auto auto auto;
 }
 
