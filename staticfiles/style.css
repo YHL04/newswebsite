@@ -21,11 +21,8 @@ html * {
 
 
 .grid-container-liked {
-    position: relative;
     display: grid;
     grid-template-columns: auto;
-    padding: 20px;
-    align: center;
 }
 
 
