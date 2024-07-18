@@ -41,6 +41,13 @@ html * {
     text-align: center;
 }
 
+.grid-info-liked {
+    float: left;
+    width: 20%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .grid-info-text {
     color: grey;
 }
