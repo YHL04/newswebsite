@@ -43,6 +43,20 @@ html * {
     text-align: center;
 }
 
+.grid-info-6 {
+    float: left;
+    width: 60%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.grid-info-2 {
+    float: left;
+    width: 20%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .grid-info-liked {
     float: left;
     width: 50%;
