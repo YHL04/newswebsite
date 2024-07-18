@@ -171,10 +171,3 @@ html * {
   grid-column: 1 / 4;
 }
 
-.nested {
-  border: 2px solid #ffec99;
-  border-radius: 5px;
-  background-color: #fff9db;
-  padding: 1em;
-}
-
