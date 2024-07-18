@@ -50,6 +50,7 @@
         <h2 class="grid-set-color">{{ news.title }}</h2>
 
         <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
+        <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">Relevance {{ news.citation_rank }}</b></p></div>
 
             <div class="grid-info">
                 {% if liked %}
@@ -63,15 +64,17 @@
                 {% endif %}
             </div>
 
-        <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">Relevance {{ news.citation_rank }}</b></p></div>
-
         {% if news.affiliations != "" %}
-        <p class="grid-set-color"><b class="grid-info-text">{{ news.affiliations }}</b></p>
+        <div class="grid-info">
+            <p class="grid-set-color"><b class="grid-info-text">{{ news.affiliations }}</b></p>
+        </div>
         {% else %}
         {% endif %}
-        <button class="button-17" onclick="window.open('{{ news.link }}','_blank')">
+        <div class="grid-info">
+            <button class="button-17" onclick="window.open('{{ news.link }}','_blank')">
                 arXiv
-        </button>
+            </button>
+        </div>
     </div>
     {% endfor %}
 </div>
