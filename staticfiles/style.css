@@ -22,7 +22,6 @@ html * {
 
 .grid-container-liked {
     display: grid;
-    grid-template-columns: auto;
 }
 
 
