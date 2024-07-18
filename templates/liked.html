@@ -44,7 +44,7 @@
 <h1>Liked Papers</h1>
 
 {% if user.is_authenticated %}
-<div class="grid-container">
+<div class="grid-container-liked">
     {% for news, liked in news_data %}
     <div class="grid-item">
         <h2 class="grid-set-color">{{ news.title }}</h2>
@@ -69,7 +69,6 @@
         <p class="grid-set-color"><b class="grid-info-text">{{ news.affiliations }}</b></p>
         {% else %}
         {% endif %}
-        <p class="grid-paragraphs">{{ news.text }}</p>
         <button class="button-17" onclick="window.open('{{ news.link }}','_blank')">
                 arXiv
         </button>
