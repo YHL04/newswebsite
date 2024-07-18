@@ -2,10 +2,10 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404
 
-import ast
 from datetime import datetime, timedelta
 
 from .models import News, User
+from .scraper import arxiv_scraper
 
 
 class LatestToday:
@@ -146,14 +146,16 @@ def arxiv(request):
     news_data = []
     if request.POST.get('search-bar') is not None:
         # TODO: replace with arxiv scraper.
-        news_data = News.objects.filter(title__icontains=request.POST.get('search-bar').replace("\n", "").replace("\r", ""))
-        news_data = news_data.order_by('-citation_rank')
+        # news_data = News.objects.filter(title__icontains=request.POST.get('search-bar').replace("\n", "").replace("\r", ""))
+        # news_data = news_data.order_by('-citation_rank')
+        news_data = arxiv_scraper(request.POST.get('search-bar').replace("\n", "").replace("\r", ""), max_results=10)
 
     template = loader.get_template("arxiv.html")
     context = {
         "news_data": zip(news_data, check_liked(request, news_data)),
     }
     return HttpResponse(template.render(context, request))
+
 
 def about(request):
     template = loader.get_template("about.html")
