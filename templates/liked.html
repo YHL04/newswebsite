@@ -46,14 +46,12 @@
 {% if user.is_authenticated %}
 <div class="grid-container-liked">
     {% for news, liked in news_data %}
-    <div class="grid-item">
-        <h2 class="grid-set-color">{{ news.title }}</h2>
-    </div>
-    <div class="grid-item-liked">
-        <div class="grid-info-liked"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
+    <div class="wrapper">
+        <h2 class="box box1">{{ news.title }}</h2>
+        <div class="box box2"><p class="grid-set-color"><b class="grid-info-text">{{ news.date }}</b></p></div>
 <!--        <div class="grid-info"><p class="grid-set-color"><b class="grid-info-text">Relevance {{ news.citation_rank }}</b></p></div>-->
 
-            <div class="grid-info-liked">
+            <div class="box box3">
                 {% if liked %}
                 <button  class="like-button active" id="{{ news.news_id }}" data-url="{% url 'post_like' %}">
                     <p class="like-button-text active" id="text{{ news.news_id }}">Likes: {{ news.total_likes }}</p>
@@ -71,7 +69,7 @@
 <!--        </div>-->
 <!--        {% else %}-->
 <!--        {% endif %}-->
-        <div class="grid-info-liked">
+        <div class="box box4">
             <button class="button-17" onclick="window.open('{{ news.link }}','_blank')">
                 arXiv
             </button>
