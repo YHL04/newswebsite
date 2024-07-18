@@ -40,7 +40,7 @@ DEBUG = True
 
 # set production to false during development
 # py manage.py runserver
-PRODUCTION = True
+PRODUCTION = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.aipapernews.com']
 CSRF_TRUSTED_ORIGINS = ['https://yhlim04.pythonanywhere.com', 'http://www.aipapernews.com', 'https://www.aipapernews.com']
