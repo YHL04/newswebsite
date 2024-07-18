@@ -3,7 +3,6 @@
 html * {
     background-color: hsl(218, 28%, 13%);
     color: white;
-    text-align: center;
     font-family: Calibri;
     max-width: 1200px;
     margin-left: auto;
