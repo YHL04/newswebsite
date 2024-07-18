@@ -57,6 +57,8 @@ html * {
 }
 
 .grid-info-text {
+    align-items: center;
+    justify-content: center;
     color: grey;
 }
 
@@ -146,35 +148,5 @@ html * {
     border-right: 10px solid transparent;
 
     border-left: 10px solid white;
-}
-
-.box1 {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.wrapper {
-  border: 2px solid #f76707;
-  border-radius: 5px;
-  gap: 3px;
-  background-color: #fff4e6;
-  display: flex;
-  flex-direction: column;
-}
-
-.box {
-  border: 2px solid #ffa94d;
-  border-radius: 5px;
-  background-color: #ffd8a8;
-  padding: 1em;
-  color: #d9480f;
-}
-
-.box1 {
-  grid-column: 1 / 4;
 }
 
