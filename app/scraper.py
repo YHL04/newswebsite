@@ -29,8 +29,7 @@ def arxiv_scraper(query, max_results):
 
     search = arxiv.Search(
         query=query,
-        max_results=max_results,
-        sort_by=arxiv.SortCriterion.SubmittedDate
+        max_results=max_results
     )
 
     results = []
