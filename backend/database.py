@@ -132,3 +132,16 @@ def delete_from_db(data, file="db.sqlite"):
             data)
         con.commit()
 
+
+def modify_in_db(data, file="db.sqlite"):
+    """only modifies affiliations, citation_rank, final_rank"""
+    data = [(d["affiliations"], d["citation_rank"], d["final_rank"], d["id"],) for d in data]
+
+    with sqlite3.connect(file) as con:
+        cur = con.cursor()
+        cur.executemany(
+            "UPDATE from app_news SET affiliations=%s, citation_rank=%s, final_rank=%s WHERE news_id=%s",
+            data
+        )
+        con.commit()
+

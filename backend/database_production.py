@@ -199,6 +199,32 @@ def delete_from_db(data):
         con.close()
 
 
+def modify_in_db(data):
+    """only modifies affiliations, citation_rank, final_rank"""
+    with sshtunnel.SSHTunnelForwarder(
+        SSHHOST,
+        ssh_username=USERNAME,
+        ssh_password=PASSWORD,
+        remote_bind_address=SQLADDRESS
+    ) as tunnel:
+        con = MySQLdb.connect(
+            user=USERNAME,
+            passwd=SQLPASSWORD,
+            host=LOCALHOST,
+            port=tunnel.local_bind_port,
+            db=DBNAME,
+        )
+        data = [(d["affiliations"], d["citation_rank"], d["final_rank"], d["id"],) for d in data]
+
+        cur = con.cursor()
+        cur.executemany(
+            "UPDATE from app_news SET affiliations=%s, citation_rank=%s, final_rank=%s WHERE news_id=%s",
+            data
+        )
+        con.commit()
+        con.close()
+
+
 def get_users():
     with sshtunnel.SSHTunnelForwarder(
         SSHHOST,

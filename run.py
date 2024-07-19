@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta
 
-from backend import scraper, scraper_recent, ranker, reinit_db, store_to_db, get_from_db, delete_from_db
+from backend import scraper, scraper_recent, ranker, reinit_db, store_to_db, get_from_db, delete_from_db, modify_in_db
 
 
 def drop_old():
@@ -70,8 +70,9 @@ if __name__ == "__main__":
         rank(data, new_data)
 
         try:
-            delete_from_db(new_data)
-            store_to_db(new_data)
+            # delete_from_db(new_data)
+            # store_to_db(new_data)
+            modify_in_db(new_data)
         except Exception as e:
             print(e)
 
