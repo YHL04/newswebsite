@@ -1,0 +1,101 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'button.css' %}">
+<link rel="stylesheet" href="{% static 'coffee.css' %}">
+<link rel="stylesheet" href="{% static 'form.css' %}">
+<link rel="stylesheet" href="{% static 'like.css' %}">
+<link rel="stylesheet" href="{% static 'navbar.css' %}">
+<link rel="stylesheet" href="{% static 'category.css' %}">
+
+<html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGQFWLK7X0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SGQFWLK7X0');
+</script>
+
+<ul>
+    <li><a href="{% url 'index' %}">Main</a></li>
+    <li><a href="{% url 'liked' %}">Liked</a></li>
+    <li><a href="{% url 'arxiv' %}">arXiv</a></li>
+    <li><a href="{% url 'search' %}">Search</a></li>
+    <li><a href="{% url 'stats' %}">Stats</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+
+    {% if user.is_authenticated %}
+    <li style="float:right"><a href="{% url 'account_logout' %}">Welcome, {{ user.username }}! Logout</a></li>
+    {% else %}
+    <li style="float:right"><a href="{% provider_login_url 'google' %}">Login</a></li>
+    {% endif %}
+</ul>
+
+<head>
+    <title>Statistics</title>
+</head>
+
+<h1>Statistics on AI Papers</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+const xValues = {{ x_values }};
+
+new Chart("myChart", {
+    type: "line",
+    scaleFontColor: 'red',
+    data: {
+        labels: xValues,
+        datasets: [{
+            data: {{ transformer_values }},
+            label: 'Transformer',
+            fontColor: '#fff',
+            borderColor: "red",
+            fill: false
+        }, {
+            data: {{ diffusion_values }},
+            label: 'Diffusion',
+            fontColor: '#fff',
+            borderColor: "green",
+            fill: false
+        }, {
+            data: {{ rl_values }},
+            label: 'Reinforcement Learning',
+            fontColor: '#fff',
+            borderColor: "blue",
+            fill: false
+        }]
+    },
+    options: {
+        legend: {display: false},
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: '#ccc'
+                },
+            }],
+            xAxes: [{
+                type: 'time',
+                time: {
+                    displayFormats: {
+                        quarter: 'DD MMM'
+                    }
+                }
+                ticks: {
+                    fontColor: '#ccc'
+                },
+            }]
+        }
+    }
+});
+</script>
+
+</html>

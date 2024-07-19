@@ -218,7 +218,7 @@ def modify_in_db(data):
 
         cur = con.cursor()
         cur.executemany(
-            "UPDATE from app_news SET affiliations=%s, citation_rank=%s, final_rank=%s WHERE news_id=%s",
+            "UPDATE app_news SET affiliations=%s, citation_rank=%s, final_rank=%s WHERE news_id=%s",
             data
         )
         con.commit()

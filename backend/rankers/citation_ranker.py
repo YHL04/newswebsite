@@ -46,7 +46,6 @@ def citation_ranker_semantic_scholar(data):
         d['affiliations'] = ', '.join(list(set(affiliations)))
         d['citation_rank'] = str(citations)
         d['final_rank'] = str(final)
-        d['like_count'] = str(d['like_count'])
         print(d['affiliations'])
 
     return data
@@ -90,3 +89,4 @@ def citation_ranker_google_scholar(data):
 
 if __name__ == "__main__":
     citation_ranker_semantic_scholar()
+

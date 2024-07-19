@@ -10,6 +10,7 @@ urlpatterns = [
     path("liked/", views.liked, name="liked"),
     path("search/", views.search, name="search"),
     path("arxiv/", views.arxiv, name="arxiv"),
+    path("stats/", views.stats, name="stats"),
     path("about/", views.about, name="about"),
     path("like/", views.post_like, name="post_like"),
     path("<str:date>/", views.specific_date, name="specific_date"),
