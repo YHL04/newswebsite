@@ -167,28 +167,20 @@ def arxiv(request):
 def stats(request):
     template = loader.get_template("stats.html")
     stats = Stats.objects.all()
-    x_val, t_val, d_val, r_val = [], [], [], []
+    x_val, t_val, d_val, r_val, rel = [], [], [], [], []
     for stat in stats:
         x_val.append(stat.stats_id.strftime('%Y-%m-%d'))
         t_val.append(int(stat.transformers_count))
         d_val.append(int(stat.diffusion_count))
         r_val.append(int(stat.rl_count))
-
-    # t_val = [12, 19, 3, 5, 2]
-    # d_val = [5, 14, 3, 6, 7]
-    # r_val = [2, 21, 6, 6, 7]
-    #
-    # x_val = []
-    # for t in range(len(t_val)):
-    #     x_val.insert(0, LatestToday().date - timedelta(days=t))
-    # for i, x in enumerate(x_val):
-    #     x_val[i] = x.strftime('%Y-%m-%d')
+        rel.append(float(stat.relevance))
 
     context = {
         "labels": x_val,
         "transformer_values": t_val,
         "diffusion_values": d_val,
         "rl_values": r_val,
+        "relevance": rel
     }
     return HttpResponse(template.render(context, request))
 

@@ -46,11 +46,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.bundle.min.js"></script>
 <body>
 
-<canvas id="myChart"></canvas>
+<canvas id="myChart1"></canvas>
 
 <script>
     window.onload = function () {
-        let ctx = document.getElementById("myChart").getContext("2d");
+        let ctx = document.getElementById("myChart1").getContext("2d");
 
         // Sample data
         let data = {
@@ -70,6 +70,52 @@
                 label: "Reinforcement Learning Papers",
                 data: {{ rl_values }},
                 borderColor: 'green',
+            },
+            ]
+        };
+
+        let chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            displayFormats: {
+                                day: 'MMM DD, YYYY'
+                                // or any desired format
+                            }
+                        },
+                        ticks: {
+                            fontColor: '#ccc'
+                        },
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: '#ccc'
+                        },
+                    }],
+                }
+            }
+        });
+    }
+</script>
+
+<canvas id="myChart2"></canvas>
+
+<script>
+    window.onload = function () {
+        let ctx = document.getElementById("myChart2").getContext("2d");
+
+        // Sample data
+        let data = {
+            labels: {{ labels|safe }},
+            datasets: [
+            {
+                label: "Relevance",
+                data: {{ relevance }},
+                borderColor: 'red',
             },
             ]
         };
