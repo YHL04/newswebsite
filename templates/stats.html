@@ -50,10 +50,10 @@
 
 <script>
     window.onload = function () {
-        let ctx = document.getElementById("myChart1").getContext("2d");
+        let ctx1 = document.getElementById("myChart1").getContext("2d");
 
         // Sample data
-        let data = {
+        let data1 = {
             labels: {{ labels|safe }},
             datasets: [
             {
@@ -74,7 +74,7 @@
             ]
         };
 
-        let chart = new Chart(ctx, {
+        let chart1 = new Chart(ctx, {
             type: 'line',
             data: data,
             options: {
@@ -106,10 +106,10 @@
 
 <script>
     window.onload = function () {
-        let ctx = document.getElementById("myChart2").getContext("2d");
+        let ctx2 = document.getElementById("myChart2").getContext("2d");
 
         // Sample data
-        let data = {
+        let data2 = {
             labels: {{ labels|safe }},
             datasets: [
             {
@@ -120,7 +120,7 @@
             ]
         };
 
-        let chart = new Chart(ctx, {
+        let chart2 = new Chart(ctx, {
             type: 'line',
             data: data,
             options: {
