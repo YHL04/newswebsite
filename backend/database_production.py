@@ -378,7 +378,7 @@ def delete_from_stats(data):
 
         cur = con.cursor()
         cur.executemany(
-            "DELETE from app_stats where stats_id=?",
+            "DELETE from app_stats where stats_id=%s",
             data)
         con.commit()
         con.close()
