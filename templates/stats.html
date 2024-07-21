@@ -42,60 +42,64 @@
 
 <h1>Statistics on AI Papers</h1>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.bundle.min.js"></script>
 <body>
-<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<canvas id="myChart"></canvas>
 
 <script>
-const xValues = {{ x_values }};
+    window.onload = function () {
+        let ctx = document.getElementById("myChart").getContext("2d");
 
-new Chart("myChart", {
-    type: "line",
-    scaleFontColor: 'red',
-    data: {
-        labels: xValues,
-        datasets: [{
-            data: {{ transformer_values }},
-            label: 'Transformer',
-            fontColor: '#fff',
-            borderColor: "red",
-            fill: false
-        }, {
-            data: {{ diffusion_values }},
-            label: 'Diffusion',
-            fontColor: '#fff',
-            borderColor: "green",
-            fill: false
-        }, {
-            data: {{ rl_values }},
-            label: 'Reinforcement Learning',
-            fontColor: '#fff',
-            borderColor: "blue",
-            fill: false
-        }]
-    },
-    options: {
-        legend: {display: false},
-        scales: {
-            yAxes: [{
-                ticks: {
-                    fontColor: '#ccc'
-                },
-            }],
-            xAxes: [{
-                type: 'time',
-                time: {
-                    displayFormats: {
-                        quarter: 'DD MMM'
-                    }
+        // Sample data
+        let data = {
+            labels: {{ labels|safe }},
+            datasets: [
+            {
+                label: "Transformer Papers",
+                data: {{ transformer_values }},
+                borderColor: '#fa613e',
+            },
+            {
+                label: "Diffusion Papers",
+                data: {{ diffusion_values }},
+                borderColor: 'blue',
+            },
+            {
+                label: "Reinforcement Learning Papers",
+                data: {{ rl_values }},
+                borderColor: 'green',
+            },
+            ]
+        };
+
+        let chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            displayFormats: {
+                                day: 'MMM DD, YYYY'
+                                // or any desired format
+                            }
+                        },
+                        ticks: {
+                            fontColor: '#ccc'
+                        },
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: '#ccc'
+                        },
+                    }],
                 }
-                ticks: {
-                    fontColor: '#ccc'
-                },
-            }]
-        }
+            }
+        });
     }
-});
 </script>
 
 </html>

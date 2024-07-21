@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 
 from datetime import datetime, timedelta
 
-from .models import News, User
+from .models import News, User, Stats
 from .scraper import arxiv_scraper
 
 
@@ -166,16 +166,26 @@ def arxiv(request):
 
 def stats(request):
     template = loader.get_template("stats.html")
-    t_val = [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478]
-    d_val = [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000]
-    r_val = [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100]
+    stats = Stats.objects.all()
+    x_val, t_val, d_val, r_val = [], [], [], []
+    for stat in stats:
+        x_val.append(stat.stats_id.strftime('%Y-%m-%d'))
+        t_val.append(int(stat.transformers_count))
+        d_val.append(int(stat.diffusion_count))
+        r_val.append(int(stat.rl_count))
 
-    # Set all dates to empty list except for the first and last one
-    x_val = ['2021-11-06' for _ in t_val]
-    month = LatestToday().date.strftime('%b').upper()
+    # t_val = [12, 19, 3, 5, 2]
+    # d_val = [5, 14, 3, 6, 7]
+    # r_val = [2, 21, 6, 6, 7]
+    #
+    # x_val = []
+    # for t in range(len(t_val)):
+    #     x_val.insert(0, LatestToday().date - timedelta(days=t))
+    # for i, x in enumerate(x_val):
+    #     x_val[i] = x.strftime('%Y-%m-%d')
 
     context = {
-        "x_values": x_val,
+        "labels": x_val,
         "transformer_values": t_val,
         "diffusion_values": d_val,
         "rl_values": r_val,

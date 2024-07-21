@@ -3,6 +3,7 @@
 from datetime import datetime, timedelta
 
 from backend import scraper, scraper_recent, ranker, reinit_db, store_to_db, get_from_db, delete_from_db, modify_in_db
+from backend import get_from_stats, store_to_stats, modify_in_stats, delete_from_stats
 
 
 def drop_old():
@@ -51,6 +52,55 @@ def rank(datas, new_datas):
             print(e)
 
 
+transformers_count = {}
+diffusion_count = {}
+rl_count = {}
+relevance = {}
+
+
+def get_stats(new_data):
+    global transformers_count, diffusion_count, rl_count, relevance
+
+    categories = {"transformer": ["transformer", "llm", "gpt", "tokenizer"],
+                  "diffusion": ["diffusion", "ddpm"],
+                  "reinforcement": ["reinforcement", "atari"],
+                  "other": ["transformer", "llm", "gpt", "tokenizer", "diffusion",
+                            "ddpm", "reinforcement", "atari"]}
+
+    for news in new_data:
+
+        relevance[str(news['date'])] = relevance.get(str(news['date']), 0) + float(news['final_rank'])
+        for category in categories.keys():
+            if any(s in news['text'].lower() for s in categories[category]):
+                if category == "transformer":
+                    transformers_count[str(news['date'])] = transformers_count.get(str(news['date']), 0) + 1
+                if category == "diffusion":
+                    diffusion_count[str(news['date'])] = diffusion_count.get(str(news['date']), 0) + 1
+                if category == "reinforcement":
+                    rl_count[str(news['date'])] = rl_count.get(str(news['date']), 0) + 1
+
+
+def store_stats():
+    global transformers_count, diffusion_count, rl_count, relevance
+
+    dates = transformers_count.keys()
+    datas = []
+    for date in dates:
+        data = {"id": date, "like_count": 0}
+        data["transformers_count"] = transformers_count.get(date, 0)
+        data["diffusion_count"] = diffusion_count.get(date, 0)
+        data["rl_count"] = rl_count.get(date, 0)
+        data["relevance"] = relevance.get(date, 0)
+
+        print(data)
+        datas.append(data)
+
+    print("deleting")
+    delete_from_stats(datas)
+    print("storing")
+    store_to_stats(datas)
+
+
 if __name__ == "__main__":
     keywords = ["Artificial Intelligence", "Machine Learning"]
     categories = ["cs.AI", "cs.LG"]
@@ -68,6 +118,7 @@ if __name__ == "__main__":
     for data in datas:
         new_data = []
         rank(data, new_data)
+        get_stats(new_data)
 
         try:
             # delete_from_db(new_data)
@@ -75,6 +126,8 @@ if __name__ == "__main__":
             modify_in_db(new_data)
         except Exception as e:
             print(e)
+
+    store_stats()
 
     # i = 0
     # while i < len(datas):
